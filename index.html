@@ -3,7 +3,17 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Andrew Cause | AI Builder</title>
+  <title>Andrew Cause Portfolio</title>
+
+  <!-- Open Graph / Social Sharing -->
+  <meta name="description" content="People Analytics at JPMorganChase. AI Builder. Career Coach at Leland. Andrew Cause turns data, AI, and eight years of recruiting intuition into tools people actually use." />
+  <meta property="og:title" content="Andrew Cause — People Analytics · AI Builder · Career Coach" />
+  <meta property="og:description" content="Eight years of recruiter intuition, now expressed in data, AI, and coaching. See what Andrew is building." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="headshot.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Andrew Cause — People Analytics · AI Builder · Career Coach" />
+  <meta name="twitter:description" content="Eight years of recruiter intuition, now expressed in data, AI, and coaching." />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;600&family=Crimson+Pro:wght@300;400;600&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -130,12 +140,13 @@
       top: 34px; left: 0; right: 0;
       z-index: 100;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
-      padding: 18px 56px;
+      padding: 12px 40px;
       background: var(--white);
       border-bottom: 1px solid rgba(39,69,92,0.1);
     }
+
 
 
     .nav-logo {
@@ -237,31 +248,10 @@
     #hero {
       background: var(--cream);
       display: flex;
-      flex-direction: column;
-      align-items: center;
+      align-items: flex-start;
       padding-top: 98px;
-      padding-bottom: 68px;
       position: relative;
       overflow: hidden;
-    }
-
-    @keyframes hero-glow {
-      0%   { opacity: 0.04; transform: translate(-20%, -20%) scale(1); }
-      100% { opacity: 0.09; transform: translate(10%, 10%) scale(1.15); }
-    }
-
-    #hero::after {
-      content: '';
-      position: absolute;
-      width: 60vw;
-      height: 60vw;
-      border-radius: 50%;
-      background: radial-gradient(circle, rgba(143,90,57,0.4) 0%, transparent 70%);
-      top: 10%;
-      left: 20%;
-      pointer-events: none;
-      z-index: 0;
-      animation: hero-glow 8s ease-in-out infinite alternate;
     }
 
     /* Subtle grain texture */
@@ -305,16 +295,21 @@
     }
 
     .hero-inner {
-      padding: 36px 56px 8px;
-      max-width: 1200px;
+      padding: 32px 56px 36px;
+      max-width: 760px;
       margin: 0 auto;
       width: 100%;
       position: relative;
       z-index: 1;
-      display: grid;
-      grid-template-columns: 1fr;
-      justify-items: center;
+      display: flex;
+      flex-direction: column;
       align-items: center;
+      text-align: center;
+    }
+
+    .hero-visual {
+      position: relative;
+      z-index: 1;
     }
 
     .hero-rule {
@@ -323,21 +318,6 @@
       background: var(--copper);
       margin: 0 auto 40px;
       animation: rule-expand 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.1s both;
-    }
-
-    .hero-currently {
-      position: absolute;
-      bottom: 0; left: 0; right: 0;
-      padding: 14px 56px;
-      border-top: 1px solid rgba(39,69,92,0.1);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 10px;
-      z-index: 2;
-      background: rgba(244,239,231,0.6);
-      backdrop-filter: blur(8px);
-      animation: fade-up 0.7s cubic-bezier(0.4,0,0.2,1) 1.2s both;
     }
 
     /* ── IDENTITY TICKER ── */
@@ -414,15 +394,61 @@
       line-height: 0.9;
       color: var(--navy);
       letter-spacing: -0.03em;
-      margin-bottom: 44px;
+      margin-bottom: 10px;
       text-align: center;
       animation: fade-up 0.9s cubic-bezier(0.4, 0, 0.2, 1) 0.65s both;
+    }
+
+    .hero-name-rule {
+      width: 48px;
+      height: 1px;
+      background: var(--copper);
+      margin: 0 auto 14px;
+      animation: rule-expand 0.7s cubic-bezier(0.4,0,0.2,1) 0.85s both;
+    }
+
+    .hero-tagline {
+      font-family: var(--font-display);
+      font-size: clamp(1.2rem, 2.2vw, 1.65rem);
+      font-weight: 300;
+      letter-spacing: 0.06em;
+      color: var(--navy);
+      margin-bottom: 28px;
+      opacity: 0;
+      animation: fade-up 0.8s cubic-bezier(0.4,0,0.2,1) 0.95s forwards;
+    }
+
+    .hero-tagline span {
+      color: var(--copper);
+      margin: 0 10px;
+      font-weight: 300;
     }
 
     .hero-title span.accent {
       color: var(--copper);
     }
 
+    .hero-meta {
+      display: flex;
+      align-items: flex-start;
+      gap: 20px;
+      margin-bottom: 44px;
+      animation: fade-up 0.7s cubic-bezier(0.4, 0, 0.2, 1) 0.85s both;
+      justify-content: center;
+      max-width: 580px;
+    }
+
+    .hero-meta-rule { display: none; }
+
+    .hero-subtitle {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 1.4vw, 1.18rem);
+      font-weight: 300;
+      color: rgba(32,32,32,0.6);
+      line-height: 1.75;
+      margin: 0;
+      text-align: center;
+    }
 
     .hero-actions {
       display: flex;
@@ -461,7 +487,7 @@
     /* ── HOOK BANNER ── */
     #hook {
       background: var(--cream);
-      padding: 64px 0;
+      padding: 44px 0 0;
       position: relative;
       overflow: hidden;
     }
@@ -506,20 +532,46 @@
     /* ── HOOK SECTION HEADER ── */
     .hook-header {
       text-align: center;
-      padding-bottom: 20px;
+      padding-bottom: 16px;
     }
 
     .hook-header .section-label {
       justify-content: center;
       color: var(--copper);
+      margin-bottom: 16px;
     }
 
     .hook-header .section-label::before { display: none; }
 
     .hook-header h2 {
+      font-size: clamp(2rem, 6vw, 5.2rem);
       color: var(--navy);
+      margin-bottom: 18px;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+    }
+
+    .hook-subline {
+      font-family: var(--font-body);
+      font-size: clamp(1rem, 1.6vw, 1.25rem);
+      font-weight: 300;
+      color: rgba(32,32,32,0.52);
       margin-bottom: 0;
-      letter-spacing: -0.02em;
+      letter-spacing: 0.01em;
+    }
+
+    .hook-scroll-cue {
+      display: inline-block;
+      margin-top: 20px;
+      color: var(--copper);
+      font-size: 1.1rem;
+      opacity: 0.55;
+      animation: scroll-cue-bounce 2s ease-in-out infinite;
+    }
+
+    @keyframes scroll-cue-bounce {
+      0%, 100% { transform: translateY(0); opacity: 0.55; }
+      50%       { transform: translateY(6px); opacity: 0.9; }
     }
 
     /* ── FORK VISUALIZATION ── */
@@ -564,23 +616,63 @@
       animation: fork-fade 0.45s ease var(--d,0s) both;
     }
 
+    /* ── MERGE BURST ── */
+    .merge-ring, .merge-pulse {
+      opacity: 0;
+      transform-box: fill-box;
+      transform-origin: center;
+    }
+    .fork-svg.drawn .merge-ring-1 {
+      animation: merge-burst 1.6s cubic-bezier(0.05,0.7,0.2,1) 0.58s forwards;
+    }
+    .fork-svg.drawn .merge-ring-2 {
+      animation: merge-burst 1.6s cubic-bezier(0.05,0.7,0.2,1) 0.84s forwards;
+    }
+    .fork-svg.drawn .merge-ring-3 {
+      animation: merge-burst 1.6s cubic-bezier(0.05,0.7,0.2,1) 1.1s forwards;
+    }
+    .fork-svg.drawn .merge-pulse {
+      animation: merge-pulse-loop 3s ease-in-out 1.9s infinite;
+    }
+    @keyframes merge-burst {
+      0%   { transform: scale(1); opacity: 1; }
+      100% { transform: scale(10); opacity: 0; }
+    }
+    @keyframes merge-pulse-loop {
+      0%   { transform: scale(1);   opacity: 0.5; }
+      55%  { transform: scale(4);   opacity: 0; }
+      100% { transform: scale(1);   opacity: 0; }
+    }
+
     /* Mobile: hide SVG, show stacked fallback */
     .fork-mobile { display: none; }
     @media (max-width: 620px) {
       .fork-svg    { display: none; }
       .fork-mobile { display: flex; flex-direction: column; align-items: center; gap: 24px; text-align: center; }
     }
-    .fork-mobile-foundation {
+    .fork-mobile-journey {
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 4px;
+      gap: 0;
+      width: 100%;
+      max-width: 320px;
     }
+    .fork-mobile-stop {
+      font-family: var(--font-ui);
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 8px 12px;
+      border-left: 2px solid rgba(244,239,231,0.1);
+    }
+    .fork-mobile-stop--recruit { color: rgba(143,90,57,0.8); border-left-color: rgba(143,90,57,0.4); }
+    .fork-mobile-stop--muted   { color: rgba(244,239,231,0.35); }
+    .fork-mobile-stop--pivot   { color: #2670A9; border-left-color: #2670A9; }
     .fork-mobile-roles { display: flex; flex-direction: column; gap: 14px; }
     .fork-mobile-role {
       font-family: var(--font-ui);
-      font-size: 0.78rem;
+      font-size: 1rem;
       font-weight: 700;
       letter-spacing: 0.14em;
       text-transform: uppercase;
@@ -588,7 +680,7 @@
     }
     .fork-mobile-role span {
       display: block;
-      font-size: 0.62rem;
+      font-size: 0.78rem;
       font-weight: 600;
       color: rgba(39,69,92,0.45);
       margin-top: 3px;
@@ -596,153 +688,109 @@
     }
 
     /* ── ABOUT ── */
+    #about { padding: 80px 0 56px; background: var(--cream); }
 
-    /* ── SKILLS & TOOLS ── */
-    #skills {
-      padding: 80px 0 100px;
-      background: var(--white);
-      border-top: 1px solid rgba(39,69,92,0.07);
+    .about-intro {
+      max-width: 100%;
+      margin: 0 auto;
+      text-align: center;
     }
 
-    .skills-grid {
+    .about-intro h2 {
+      font-size: clamp(2.8rem, 5vw, 4.5rem);
+    }
+
+    .about-intro h2 { text-align: center; }
+    .about-intro .section-label { justify-content: center; }
+    .about-intro .section-label::before { display: none; }
+
+    .about-lead {
+      font-size: 1.35rem;
+      line-height: 1.8;
+      color: rgba(32,32,32,0.7);
+      margin-bottom: 20px;
+    }
+
+    .about-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 48px;
-      margin-top: 56px;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: start;
     }
 
-    .skills-group {
-      display: flex;
-      flex-direction: column;
+    .about-text p {
+      font-size: 1.08rem;
+      line-height: 1.78;
+      color: #484848;
+      margin-bottom: 18px;
     }
 
-    .skills-group-label {
+    .about-text p:last-of-type { margin-bottom: 0; }
+
+    .about-tags { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 32px; justify-content: center; }
+
+    .tag {
+      display: inline-block;
+      padding: 5px 14px;
+      border-radius: 2px;
       font-family: var(--font-ui);
-      font-size: 0.62rem;
-      font-weight: 700;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--copper);
-      padding-bottom: 14px;
-      border-bottom: 1px solid rgba(143,90,57,0.18);
-      margin-bottom: 4px;
-    }
-
-    .skill-item {
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      padding: 11px 0;
-      border-bottom: 1px solid rgba(39,69,92,0.05);
-      font-family: var(--font-ui);
-      font-size: 0.8rem;
+      font-size: 0.67rem;
       font-weight: 600;
+      letter-spacing: 0.09em;
+      text-transform: uppercase;
       color: var(--navy);
-      letter-spacing: 0.02em;
-      transition: color 0.2s, padding-left 0.2s;
-      cursor: default;
-    }
-
-    .skill-item:last-child { border-bottom: none; }
-    .skill-item:hover { color: var(--copper); padding-left: 4px; }
-
-    .skill-dot {
-      width: 6px;
-      height: 6px;
-      border-radius: 50%;
-      background: rgba(39,69,92,0.3);
-      flex-shrink: 0;
-      transition: background 0.2s;
-    }
-
-    .skill-dot--copper { background: rgba(143,90,57,0.4); }
-    .skill-dot--blue   { background: rgba(38,112,169,0.4); }
-    .skill-item:hover .skill-dot         { background: var(--navy); }
-    .skill-item:hover .skill-dot--copper { background: var(--copper); }
-    .skill-item:hover .skill-dot--blue   { background: var(--blue); }
-
-    @media (max-width: 768px) {
-      .skills-grid { grid-template-columns: 1fr; gap: 36px; }
-    }
-
-    /* ── RECOMMENDATIONS ── */
-    #recommendations {
-      padding: 100px 0;
-      background: var(--cream);
-    }
-
-    .rec-grid {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 32px;
-      margin-top: 56px;
-    }
-
-    .rec-card {
-      background: var(--white);
-      padding: 36px 32px 32px;
-      border-top: 2px solid var(--copper);
+      border: 1px solid rgba(39,69,92,0.35);
       position: relative;
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.55s cubic-bezier(0.4,0,0.2,1) var(--d,0s),
-                  transform 0.55s cubic-bezier(0.4,0,0.2,1) var(--d,0s);
+      overflow: hidden;
+      cursor: default;
+      transition: color 0.3s ease, border-color 0.3s ease;
+      z-index: 0;
     }
 
-    .rec-card.visible { opacity: 1; transform: translateY(0); }
+    .tag::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--navy);
+      transform: translateX(-101%);
+      transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      z-index: -1;
+    }
 
-    .rec-quote-mark {
-      display: block;
+    .tag:hover::before { transform: translateX(0); }
+    .tag:hover { color: var(--cream); border-color: var(--navy); }
+
+    .about-stat-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1px;
+      background: rgba(39,69,92,0.12);
+      border: 1px solid rgba(39,69,92,0.12);
+    }
+
+    .stat-card { background: var(--white); padding: 36px 28px; }
+
+    .stat-number {
       font-family: var(--font-display);
-      font-size: 5rem;
-      line-height: 0.8;
-      color: rgba(143,90,57,0.14);
-      margin-bottom: 8px;
-      user-select: none;
-    }
-
-    .rec-quote {
-      font-family: var(--font-body);
-      font-size: 1.05rem;
+      font-size: 4.5rem;
       font-weight: 300;
-      line-height: 1.72;
-      color: var(--text);
-      font-style: italic;
-      margin-bottom: 28px;
-    }
-
-    .rec-divider {
-      width: 28px;
-      height: 1px;
-      background: var(--copper);
-      margin-bottom: 16px;
-      opacity: 0.4;
-    }
-
-    .rec-name {
-      font-family: var(--font-ui);
-      font-size: 0.75rem;
-      font-weight: 700;
       color: var(--navy);
-      letter-spacing: 0.06em;
-      margin-bottom: 3px;
+      line-height: 1;
+      margin-bottom: 8px;
     }
 
-    .rec-meta {
+    .stat-label {
       font-family: var(--font-ui);
-      font-size: 0.62rem;
+      font-size: 0.65rem;
       font-weight: 600;
-      color: rgba(39,69,92,0.4);
-      letter-spacing: 0.1em;
+      letter-spacing: 0.07em;
       text-transform: uppercase;
-    }
-
-    @media (max-width: 768px) {
-      .rec-grid { grid-template-columns: 1fr; }
+      color: rgba(32,32,32,0.45);
+      line-height: 1.5;
     }
 
     /* ── WORK ── */
-    #work { padding: 100px 0; background: var(--white); }
+    #work { padding: 60px 0; background: var(--white); }
 
     .work-grid {
       display: grid;
@@ -750,7 +798,7 @@
       gap: 1px;
       background: rgba(39,69,92,0.1);
       border: 1px solid rgba(39,69,92,0.1);
-      margin-top: 56px;
+      margin-top: 28px;
     }
 
     .work-card {
@@ -853,8 +901,9 @@
     }
 
 
+
     /* ── PROJECTS ── */
-    #projects { padding: 100px 0; background: var(--cream); }
+    #projects { padding: 60px 0; background: var(--cream); }
 
     .projects-grid {
       display: grid;
@@ -862,7 +911,7 @@
       gap: 1px;
       background: rgba(39,69,92,0.1);
       border: 1px solid rgba(39,69,92,0.1);
-      margin-top: 56px;
+      margin-top: 28px;
     }
 
     .project-card {
@@ -960,7 +1009,7 @@
     .project-link:hover { background: rgba(38,112,169,0.07); border-color: var(--blue); }
 
     /* ── CONTACT ── */
-    #contact { padding: 88px 0 80px; background: var(--navy); text-align: center; }
+    #contact { padding: 60px 0 56px; background: var(--navy); text-align: center; }
 
     .contact-inner { max-width: 900px; margin: 0 auto; }
 
@@ -1059,9 +1108,9 @@
     }
 
     .contact-path-cta:hover {
-      background: var(--copper);
-      border-color: var(--copper);
-      color: var(--white);
+      background: var(--navy);
+      border-color: var(--navy);
+      color: var(--cream);
       transform: translateY(-1px);
     }
 
@@ -1079,13 +1128,13 @@
 
     .contact-reply {
       font-family: var(--font-ui);
-      font-size: 0.88rem;
-      font-weight: 700;
-      letter-spacing: 0.1em;
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
-      color: rgba(244,239,231,0.65);
+      color: rgba(244,239,231,0.22);
       text-align: center;
-      margin-top: 28px;
+      margin-top: 4px;
     }
 
     /* ── FOOTER ── */
@@ -1563,14 +1612,8 @@
       transition: background 0.3s, box-shadow 0.3s;
     }
 
-    /* ── HOOK SECTION ── */
+    /* ── HOOK SECTION — larger, more dramatic ── */
     #hook {
-      background: var(--cream);
-      padding: 64px 0;
-      position: relative;
-      overflow: hidden;
-      background-image: radial-gradient(rgba(39,69,92,0.07) 1px, transparent 1px);
-      background-size: 32px 32px;
       cursor: default;
     }
     .hook-statement {
@@ -1604,7 +1647,7 @@
     /* ── SECTION DIVIDER LINE ── */
     .section-divider {
       width: 1px;
-      height: 48px;
+      height: 24px;
       background: linear-gradient(to bottom, transparent, var(--copper), transparent);
       margin: 0 auto;
       opacity: 0.5;
@@ -1666,57 +1709,6 @@
     /* ── CONTACT SECTION FADE ── */
     .contact-inner.reveal { transition-duration: 0.9s; }
 
-    /* ── ENHANCED SCROLL ANIMATIONS ── */
-    @keyframes slide-up {
-      from { opacity: 0; transform: translateY(32px); }
-      to   { opacity: 1; transform: translateY(0); }
-    }
-    @keyframes slide-left {
-      from { opacity: 0; transform: translateX(24px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes slide-right {
-      from { opacity: 0; transform: translateX(-24px); }
-      to   { opacity: 1; transform: translateX(0); }
-    }
-    @keyframes scale-in {
-      from { opacity: 0; transform: scale(0.96); }
-      to   { opacity: 1; transform: scale(1); }
-    }
-
-    /* Work cards — staggered slide up */
-    .work-card {
-      opacity: 0;
-      transform: translateY(28px);
-      transition: opacity 0.55s cubic-bezier(0.4,0,0.2,1), transform 0.55s cubic-bezier(0.4,0,0.2,1), border-top-color 0.25s, box-shadow 0.35s, background 0.35s;
-    }
-    .work-card.visible { opacity: 1; transform: translateY(0); }
-    .work-card:nth-child(1) { transition-delay: 0s; }
-    .work-card:nth-child(2) { transition-delay: 0.1s; }
-    .work-card:nth-child(3) { transition-delay: 0.2s; }
-    .work-card:nth-child(4) { transition-delay: 0.3s; }
-
-    /* Project cards — staggered cascade */
-    .project-card {
-      opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1) var(--d,0s), transform 0.5s cubic-bezier(0.4,0,0.2,1) var(--d,0s), border-top-color 0.25s, box-shadow 0.35s;
-    }
-    .project-card.visible { opacity: 1; transform: translateY(0); }
-
-    /* Contact path cards */
-    .contact-path {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.5s cubic-bezier(0.4,0,0.2,1) var(--d,0s), transform 0.5s cubic-bezier(0.4,0,0.2,1) var(--d,0s), background 0.25s, border-top-color 0.25s;
-    }
-    .contact-path.visible { opacity: 1; transform: translateY(0); }
-
-    /* Section label copper rule expand */
-    .section-label.visible::before {
-      animation: rule-expand 0.6s cubic-bezier(0.4,0,0.2,1) 0.2s both;
-    }
-
     /* ── HAMBURGER ── */
     .nav-toggle {
       display: none;
@@ -1753,7 +1745,13 @@
 
     /* ── RESPONSIVE ── */
     @media (max-width: 960px) {
-      .hero-inner { grid-template-columns: 1fr; }
+      .hero-inner { padding: 64px 32px 60px; }
+      .hero-visual { display: none; }
+      .career-timeline { grid-template-columns: 1fr; gap: 40px; }
+      .career-divider { width: 60px; height: 1px; align-self: auto; margin: 0 auto; }
+      .career-divider::after { top: 0; left: 50%; transform: translate(-50%, -50%) rotate(90deg); }
+      .career-foundation { align-items: center; }
+      .career-present { align-items: flex-start; max-width: 360px; margin: 0 auto; }
     }
 
     @media (max-width: 768px) {
@@ -1762,13 +1760,25 @@
       .nav-links { display: none; }
       .container { padding: 0 20px; }
 
-      #hero { padding-top: 80px; padding-bottom: 60px; }
-      .hero-inner { padding: 32px 20px 8px; grid-template-columns: 1fr; }
+      #hero { padding-top: 80px; min-height: auto; }
+      .hero-inner { padding: 48px 20px 56px; }
+      .hero-visual { display: none; }
       .hero-title { font-size: clamp(3rem, 12vw, 5rem); }
-      .hero-currently { padding: 12px 20px; flex-wrap: wrap; }
+      .hero-subtitle { font-size: 1rem; }
 
       #hook { padding: 48px 20px 56px; }
       .hook-statement { font-size: clamp(1.3rem, 5vw, 1.8rem); }
+
+      #about { padding: 52px 0 36px; }
+      .about-intro { margin-bottom: 0; }
+      .about-lead { font-size: 1.05rem; }
+
+      .career-timeline { grid-template-columns: 1fr; gap: 32px; padding: 40px 0; }
+      .career-divider { width: 40px; height: 1px; margin: 0 auto; }
+      .career-years { font-size: 4.5rem; }
+      .career-foundation-title { font-size: 1.5rem; }
+      .career-role-title { font-size: 1.2rem; }
+      .career-present { max-width: 100%; }
 
       #work { padding: 64px 0; }
       .work-grid { grid-template-columns: 1fr; }
@@ -1790,11 +1800,444 @@
 
     @media (max-width: 480px) {
       .hero-title { font-size: clamp(2.6rem, 14vw, 3.5rem); }
+      .about-lead { font-size: 1rem; }
       h2 { font-size: clamp(1.9rem, 8vw, 2.4rem); }
     }
+
+    /* ── AC MONOGRAM ── */
+    .nav-monogram {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: var(--navy);
+      border: 1.5px solid var(--copper);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 0.95rem;
+      font-weight: 600;
+      letter-spacing: 0.04em;
+      color: var(--copper);
+      text-decoration: none;
+      z-index: 101;
+      transition: background 0.22s, color 0.22s, border-color 0.22s, transform 0.2s;
+      box-shadow: 0 2px 12px rgba(39,69,92,0.18);
+    }
+    .nav-monogram:hover {
+      background: var(--copper);
+      color: var(--white);
+      border-color: var(--copper);
+      transform: scale(1.07);
+    }
+    @media (max-width: 768px) {
+      .nav-monogram { display: none; }
+    }
+
+    /* ── ANIMATED BACKGROUND (warm organic gradient wash) ── */
+    #bg-gradient {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+      overflow: hidden;
+    }
+    .bg-orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(55px);
+      opacity: 1;
+      will-change: transform;
+    }
+    .bg-orb--1 {
+      width: 700px; height: 700px;
+      background: radial-gradient(circle, rgba(143,90,57,0.55) 0%, rgba(143,90,57,0.20) 50%, rgba(143,90,57,0) 72%);
+      top: -160px; left: -140px;
+      animation: orb-drift-1 18s ease-in-out infinite;
+    }
+    .bg-orb--2 {
+      width: 580px; height: 580px;
+      background: radial-gradient(circle, rgba(38,112,169,0.45) 0%, rgba(38,112,169,0.15) 50%, rgba(38,112,169,0) 72%);
+      top: 15%; right: -120px;
+      animation: orb-drift-2 24s ease-in-out infinite;
+      animation-delay: -8s;
+    }
+    .bg-orb--3 {
+      width: 640px; height: 640px;
+      background: radial-gradient(circle, rgba(39,69,92,0.38) 0%, rgba(39,69,92,0.12) 50%, rgba(39,69,92,0) 72%);
+      bottom: -120px; left: 18%;
+      animation: orb-drift-3 20s ease-in-out infinite;
+      animation-delay: -5s;
+    }
+    .bg-orb--4 {
+      width: 480px; height: 480px;
+      background: radial-gradient(circle, rgba(143,90,57,0.35) 0%, rgba(143,90,57,0.10) 50%, rgba(143,90,57,0) 72%);
+      bottom: 8%; left: -60px;
+      animation: orb-drift-4 22s ease-in-out infinite;
+      animation-delay: -12s;
+    }
+    @keyframes orb-drift-1 {
+      0%   { transform: translate(0px,   0px)   scale(1);    }
+      30%  { transform: translate(80px, -60px)  scale(1.08); }
+      60%  { transform: translate(30px,  90px)  scale(0.94); }
+      100% { transform: translate(0px,   0px)   scale(1);    }
+    }
+    @keyframes orb-drift-2 {
+      0%   { transform: translate(0px,   0px)   scale(1);    }
+      35%  { transform: translate(-70px, 70px)  scale(1.06); }
+      70%  { transform: translate(-25px,-80px)  scale(0.95); }
+      100% { transform: translate(0px,   0px)   scale(1);    }
+    }
+    @keyframes orb-drift-3 {
+      0%   { transform: translate(0px,   0px)   scale(1);    }
+      40%  { transform: translate(-60px,-50px)  scale(1.07); }
+      75%  { transform: translate(70px,  35px)  scale(0.96); }
+      100% { transform: translate(0px,   0px)   scale(1);    }
+    }
+    @keyframes orb-drift-4 {
+      0%   { transform: translate(0px,  0px)   scale(1);    }
+      45%  { transform: translate(60px,-70px)  scale(1.08); }
+      80%  { transform: translate(25px, 50px)  scale(0.94); }
+      100% { transform: translate(0px,  0px)   scale(1);    }
+    }
+
+    /* ── SKILLS & TOOLS ── */
+    #skills {
+      padding: 56px 0 64px;
+      background: var(--white);
+      border-top: 1px solid rgba(39,69,92,0.07);
+    }
+
+    #skills h2 {
+      margin-bottom: 12px;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: rgba(39,69,92,0.08);
+      border: 1px solid rgba(39,69,92,0.08);
+      margin-top: 48px;
+    }
+
+    .skills-group {
+      background: var(--white);
+      padding: 40px 44px 44px;
+    }
+
+    .skills-group-icon {
+      display: block;
+      margin-bottom: 16px;
+    }
+
+    .skills-group-label {
+      font-family: var(--font-display);
+      font-size: 1.85rem;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 24px;
+      line-height: 1.15;
+      letter-spacing: -0.01em;
+    }
+
+    .skill-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 1.15rem;
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--text);
+      padding: 7px 0;
+      border-bottom: 1px solid rgba(39,69,92,0.06);
+    }
+
+    .skill-item:last-child { border-bottom: none; }
+
+    .skill-dot {
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: rgba(39,69,92,0.3);
+      flex-shrink: 0;
+    }
+
+    .skill-dot--copper { background: var(--copper); }
+    .skill-dot--blue   { background: var(--blue); }
+
+    @media (max-width: 768px) {
+      .skills-grid { grid-template-columns: 1fr; }
+      .skills-group { padding: 28px 24px; }
+      .skills-group-label { font-size: 1.5rem; }
+    }
+
+    /* ── RECOMMENDATIONS CAROUSEL ── */
+    #recommendations {
+      padding: 56px 0 64px;
+      background: var(--cream);
+      border-top: 1px solid rgba(39,69,92,0.07);
+    }
+
+    .rec-carousel {
+      position: relative;
+      margin-top: 48px;
+      overflow: hidden;
+    }
+
+    .rec-track {
+      display: flex;
+      transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      will-change: transform;
+    }
+
+    /* Desktop: 3 cards visible */
+    .rec-card {
+      flex: 0 0 calc(100% / 3);
+      background: var(--white);
+      border-top: 3px solid var(--copper);
+      border-right: 1px solid rgba(39,69,92,0.07);
+      border-bottom: 1px solid rgba(39,69,92,0.07);
+      padding: 36px 32px 40px;
+      box-sizing: border-box;
+      position: relative;
+    }
+
+    .rec-card:last-child { border-right: none; }
+
+    /* Tablet: 2 cards */
+    @media (max-width: 900px) {
+      .rec-card { flex: 0 0 50%; }
+    }
+
+    /* Mobile: 1 card */
+    @media (max-width: 580px) {
+      .rec-card { flex: 0 0 100%; padding: 28px 24px 32px; }
+    }
+
+    .rec-quote-mark {
+      font-family: var(--font-display);
+      font-size: 5rem;
+      font-weight: 300;
+      color: var(--copper);
+      line-height: 0.6;
+      display: block;
+      margin-bottom: 20px;
+      opacity: 0.6;
+    }
+
+    .rec-card {
+      cursor: default;
+      transition: box-shadow 0.25s ease, transform 0.25s ease;
+    }
+    .rec-card:hover {
+      box-shadow: 0 16px 48px rgba(39,69,92,0.14);
+      transform: translateY(-2px);
+    }
+    .rec-card:hover .rec-quote {
+      -webkit-line-clamp: unset;
+      display: block;
+      overflow: visible;
+    }
+
+    .rec-quote {
+      font-family: var(--font-body);
+      font-size: 1.05rem;
+      font-weight: 300;
+      color: var(--text);
+      line-height: 1.75;
+      margin-bottom: 28px;
+      display: -webkit-box;
+      -webkit-line-clamp: 5;
+      -webkit-box-orient: vertical;
+      overflow: hidden;
+    }
+
+    .rec-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .rec-header-left h2 { margin-bottom: 0; }
+
+    .rec-header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      flex-shrink: 0;
+    }
+
+    .rec-divider {
+      width: 40px;
+      height: 1px;
+      background: var(--copper);
+      opacity: 0.4;
+      margin-bottom: 18px;
+    }
+
+    .rec-name {
+      font-family: var(--font-ui);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--navy);
+      margin-bottom: 4px;
+    }
+
+    .rec-meta {
+      font-family: var(--font-ui);
+      font-size: 0.65rem;
+      font-weight: 400;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      color: rgba(39,69,92,0.42);
+    }
+
+    .rec-stars {
+      color: var(--copper);
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+      margin-bottom: 10px;
+      opacity: 0.88;
+    }
+
+    .rec-outcome {
+      display: inline-block;
+      margin-top: 8px;
+      font-family: var(--font-ui);
+      font-size: 0.62rem;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--copper);
+      border: 1px solid rgba(143,90,57,0.3);
+      padding: 3px 10px;
+      border-radius: 2px;
+    }
+
+    /* Carousel controls */
+    .rec-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 20px;
+    }
+
+    .rec-dots {
+      display: flex;
+      gap: 6px;
+    }
+
+    .rec-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: rgba(39,69,92,0.18);
+      cursor: pointer;
+      transition: background 0.2s, transform 0.2s;
+      border: none;
+      padding: 0;
+    }
+
+    .rec-dot.active {
+      background: var(--copper);
+      transform: scale(1.3);
+    }
+
+    .rec-arrows {
+      display: flex;
+      gap: 8px;
+    }
+
+    .rec-arrow {
+      width: 36px;
+      height: 36px;
+      border: 1px solid rgba(39,69,92,0.2);
+      border-radius: 2px;
+      background: transparent;
+      color: var(--navy);
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: border-color 0.2s, color 0.2s, background 0.2s;
+    }
+
+    .rec-arrow:hover {
+      border-color: var(--copper);
+      color: var(--copper);
+      background: rgba(143,90,57,0.05);
+    }
+
+    /* ── HEADSHOT ── */
+    .hero-headshot-outer {
+      position: relative;
+      display: inline-flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      animation: fade-up 0.7s cubic-bezier(0.4,0,0.2,1) 0.2s both;
+    }
+
+    .hero-headshot-outer::before,
+    .hero-headshot-outer::after {
+      content: '';
+      position: absolute;
+      width: 168px;
+      height: 168px;
+      border-radius: 50%;
+      border: 1.5px solid rgba(143,90,57,0.55);
+      animation: headshot-beacon 3.4s ease-out infinite;
+      pointer-events: none;
+    }
+    .hero-headshot-outer::after {
+      border-color: rgba(39,69,92,0.35);
+      animation-delay: 1.7s;
+    }
+
+    @keyframes headshot-beacon {
+      0%   { transform: scale(1);    opacity: 0.75; }
+      100% { transform: scale(1.6);  opacity: 0; }
+    }
+
+    .hero-headshot-wrap {
+      width: 168px;
+      height: 168px;
+      border-radius: 50%;
+      overflow: hidden;
+      border: 3px solid var(--copper);
+      flex-shrink: 0;
+      box-shadow:
+        0 0 0 7px rgba(143,90,57,0.10),
+        0 0 0 13px rgba(143,90,57,0.05),
+        0 16px 48px rgba(39,69,92,0.18);
+    }
+
+    .hero-headshot-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: 60% 15%;
+    }
+
   </style>
 </head>
 <body>
+
+  <!-- ANIMATED BACKGROUND — warm organic gradient orbs -->
+  <div id="bg-gradient" aria-hidden="true">
+    <div class="bg-orb bg-orb--1"></div>
+    <div class="bg-orb bg-orb--2"></div>
+    <div class="bg-orb bg-orb--3"></div>
+    <div class="bg-orb bg-orb--4"></div>
+  </div>
 
   <!-- SCROLL PROGRESS -->
   <div id="scroll-progress"></div>
@@ -1831,7 +2274,7 @@
 
   <!-- NAV -->
   <nav>
-    <div class="nav-logo" style="display:none"></div>
+    <a href="#hero" class="nav-monogram" aria-label="Back to top">AC</a>
     <ul class="nav-links" id="navLinks">
       <li><a href="#hook" onclick="closeNav()">Journey</a></li>
       <li><a href="#work" onclick="closeNav()">Work</a></li>
@@ -1845,24 +2288,24 @@
 
   <!-- HERO -->
   <section id="hero">
-    <div class="hero-watermark">A</div>
+
     <div class="hero-bottom-rule"></div>
     <div class="hero-inner">
       <div class="hero-text">
+        <div class="hero-headshot-outer">
+          <div class="hero-headshot-wrap">
+            <img src="headshot.jpg" alt="Andrew Cause" onerror="this.parentElement.parentElement.style.display='none'">
+          </div>
+        </div>
         <h1 class="hero-title">Andrew <span class="accent">Cause</span></h1>
+        <div class="hero-name-rule"></div>
+        <p class="hero-tagline">People Analytics<span>·</span>AI Builder<span>·</span>Career Coach</p>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">View Projects</a>
           <a href="#contact" class="btn btn-ghost">Get in Touch</a>
         </div>
       </div>
-    </div>
-    <div class="hero-currently">
-      <span class="ticker-label">Currently</span>
-      <div class="ticker-words">
-        <span class="ticker-word active">BI Analyst</span>
-        <span class="ticker-word">AI Builder</span>
-        <span class="ticker-word">Career Coach</span>
-      </div>
+
     </div>
   </section>
 
@@ -1871,59 +2314,125 @@
     <div class="container">
       <div class="hook-header section-reveal">
         <div class="section-label">My Journey</div>
+        <h2>Recruiting Roots. Finance Depth.<br>Burgeoning Tech Expertise.</h2>
+        <span class="hook-scroll-cue">↓</span>
       </div>
     </div>
     <div class="fork-wrap">
 
-      <!-- Desktop: animated SVG — foundation stats + fork -->
-      <svg class="fork-svg" viewBox="0 0 980 380" xmlns="http://www.w3.org/2000/svg"
-        aria-label="5 years as recruiter and sourcer, 8 years in finance — branching into BI Analyst, AI Builder, and Career Coach">
+      <!-- Desktop: animated SVG — full career timeline + fork -->
+      <!-- Top-to-bottom: foundations merge → 3 paths branch down -->
+      <svg class="fork-svg" viewBox="0 0 700 560" xmlns="http://www.w3.org/2000/svg"
+        aria-label="Career journey: recruiting roots and finance depth merge into Business Intelligence, AI Builder, and Career Coach">
 
-        <!-- ── LEFT SIDE: TWO STATS (contained in x 0-210) ── -->
-        <!-- "5" numeral — navy on cream background -->
-        <text x="24" y="118" font-family="'Cormorant Garamond',Georgia,serif" font-size="80" font-weight="300" fill="rgba(39,69,92,0.85)" letter-spacing="-0.03em" class="fork-label" style="--d:0s">5</text>
-        <!-- YRS label -->
-        <text x="28" y="166" font-family="'Open Sans',sans-serif" font-size="10.5" font-weight="700" fill="rgba(39,69,92,0.42)" letter-spacing="0.18em" class="fork-label" style="--d:0.05s">YRS · RECRUITER &amp; SOURCER</text>
-        <!-- Divider -->
-        <line x1="28" y1="182" x2="198" y2="182" stroke="rgba(39,69,92,0.12)" stroke-width="1" class="fork-label" style="--d:0.08s"/>
-        <!-- "8" numeral — same color and size as "5" -->
-        <text x="24" y="290" font-family="'Cormorant Garamond',Georgia,serif" font-size="80" font-weight="300" fill="rgba(39,69,92,0.85)" letter-spacing="-0.03em" class="fork-label" style="--d:0.1s">8</text>
-        <!-- YRS label -->
-        <text x="28" y="313" font-family="'Open Sans',sans-serif" font-size="10.5" font-weight="700" fill="rgba(39,69,92,0.42)" letter-spacing="0.18em" class="fork-label" style="--d:0.15s">YRS · FINANCE INDUSTRY</text>
+        <!-- ── FOUNDATION: 5 YRS RECRUITER & SOURCER (left) ── -->
+        <text x="175" y="74"
+          font-family="'Cormorant Garamond',Georgia,serif" font-size="86" font-weight="600"
+          fill="rgba(39,69,92,0.85)" text-anchor="middle"
+          class="fork-label" style="--d:0s" id="count-five"></text>
+        <text x="175" y="122"
+          font-family="'Open Sans',sans-serif" font-size="12" font-weight="700"
+          fill="rgba(143,90,57,0.8)" letter-spacing="0.15em" text-anchor="middle"
+          class="fork-label" style="--d:0.08s">YEARS · RECRUITER &amp; SOURCER</text>
+        <line x1="90" y1="134" x2="260" y2="134"
+          stroke="rgba(39,69,92,0.1)" stroke-width="1"
+          class="fork-label" style="--d:0.12s"/>
 
-        <!-- ── INPUT LINE ── -->
-        <line x1="218" y1="200" x2="308" y2="200" stroke="rgba(39,69,92,0.35)" stroke-width="2" class="fork-line" style="--d:0.2s"/>
+        <!-- ── FOUNDATION: 8 YRS FINANCE INDUSTRY (right) ── -->
+        <text x="525" y="95"
+          font-family="'Cormorant Garamond',Georgia,serif" font-size="86" font-weight="600"
+          fill="rgba(39,69,92,0.85)" text-anchor="middle"
+          class="fork-label" style="--d:0.05s" id="count-eight"></text>
+        <text x="525" y="122"
+          font-family="'Open Sans',sans-serif" font-size="12" font-weight="700"
+          fill="rgba(39,69,92,0.5)" letter-spacing="0.15em" text-anchor="middle"
+          class="fork-label" style="--d:0.13s">YEARS · FINANCE INDUSTRY</text>
+        <line x1="400" y1="134" x2="650" y2="134"
+          stroke="rgba(39,69,92,0.1)" stroke-width="1"
+          class="fork-label" style="--d:0.17s"/>
 
-        <!-- ── FORK POINT dot ── -->
-        <circle cx="308" cy="200" r="5.5" fill="rgba(39,69,92,0.55)" class="fork-dot" style="--d:0.38s"/>
+        <!-- ── MERGE LINES (converging downward) ── -->
+        <path d="M 175 144 C 175 215 365 225 365 258"
+          fill="none" stroke="rgba(143,90,57,0.45)" stroke-width="2"
+          class="fork-line" style="--d:0.22s"/>
+        <path d="M 525 144 C 525 215 365 225 365 258"
+          fill="none" stroke="rgba(39,69,92,0.35)" stroke-width="2"
+          class="fork-line" style="--d:0.32s"/>
 
-        <!-- ── BRANCH 1: BI Analyst (blue, top) ── -->
-        <path d="M 308 200 C 435 200 435 80 560 80 L 945 80" fill="none" stroke="#2670A9" stroke-width="2" opacity="0.75" class="fork-line" style="--d:0.44s"/>
-        <circle cx="945" cy="80" r="4.5" fill="#2670A9" class="fork-dot" style="--d:0.88s"/>
-        <text x="572" y="62" font-family="'Open Sans',sans-serif" font-size="21" font-weight="700" fill="#27455C" letter-spacing="0.12em" class="fork-label" style="--d:0.91s">BI ANALYST</text>
-        <text x="574" y="97" font-family="'Open Sans',sans-serif" font-size="12.5" font-weight="600" fill="#2670A9" letter-spacing="0.1em" class="fork-label" style="--d:0.94s">JPMORGANCHASE · PEOPLE ANALYTICS</text>
+        <!-- ── MERGE NODE ── -->
+        <circle cx="365" cy="260" r="14" fill="none" stroke="rgba(143,90,57,0.14)" stroke-width="1.5"
+          class="fork-dot" style="--d:0.52s"/>
+        <circle cx="365" cy="260" r="7"  fill="none" stroke="rgba(143,90,57,0.28)" stroke-width="1.2"
+          class="fork-dot" style="--d:0.54s"/>
+        <circle cx="365" cy="260" r="4"  fill="rgba(143,90,57,0.72)"
+          class="fork-dot" style="--d:0.56s"/>
 
-        <!-- ── BRANCH 2: AI Builder (copper, middle) ── -->
-        <line x1="308" y1="200" x2="945" y2="200" stroke="#8F5A39" stroke-width="2" opacity="0.8" class="fork-line" style="--d:0.58s"/>
-        <circle cx="945" cy="200" r="4.5" fill="#8F5A39" class="fork-dot" style="--d:0.96s"/>
-        <text x="572" y="182" font-family="'Open Sans',sans-serif" font-size="21" font-weight="700" fill="#27455C" letter-spacing="0.12em" class="fork-label" style="--d:0.99s">AI BUILDER</text>
-        <text x="574" y="217" font-family="'Open Sans',sans-serif" font-size="12.5" font-weight="600" fill="#8F5A39" letter-spacing="0.1em" class="fork-label" style="--d:1.02s">AI BUILDER PROGRAM · 2026 COHORT</text>
+        <!-- ── MERGE BURST RINGS — fire on scroll trigger ── -->
+        <circle cx="365" cy="260" r="6" fill="none" stroke="rgba(143,90,57,0.9)" stroke-width="2.5"
+          class="merge-ring merge-ring-1"/>
+        <circle cx="365" cy="260" r="6" fill="none" stroke="rgba(38,112,169,0.75)" stroke-width="1.8"
+          class="merge-ring merge-ring-2"/>
+        <circle cx="365" cy="260" r="6" fill="none" stroke="rgba(143,90,57,0.6)" stroke-width="1.4"
+          class="merge-ring merge-ring-3"/>
+        <!-- Persistent slow pulse after burst -->
+        <circle cx="365" cy="260" r="8" fill="none" stroke="rgba(143,90,57,0.38)" stroke-width="1"
+          class="merge-pulse"/>
 
-        <!-- ── BRANCH 3: Career Coach (navy muted, bottom) ── -->
-        <path d="M 308 200 C 435 200 435 320 560 320 L 945 320" fill="none" stroke="rgba(39,69,92,0.3)" stroke-width="2" class="fork-line" style="--d:0.72s"/>
-        <circle cx="945" cy="320" r="4.5" fill="rgba(39,69,92,0.35)" class="fork-dot" style="--d:1.04s"/>
-        <text x="572" y="302" font-family="'Open Sans',sans-serif" font-size="21" font-weight="700" fill="#27455C" letter-spacing="0.12em" class="fork-label" style="--d:1.07s">CAREER COACH</text>
-        <text x="574" y="338" font-family="'Open Sans',sans-serif" font-size="12.5" font-weight="600" fill="rgba(39,69,92,0.5)" letter-spacing="0.1em" class="fork-label" style="--d:1.1s">LELAND · AI CAREERS</text>
+        <!-- ── BRANCH 1: Business Intelligence (left, blue) ── -->
+        <path d="M 365 260 C 365 318 110 318 110 366"
+          fill="none" stroke="#2670A9" stroke-width="2" opacity="0.82"
+          class="fork-line" style="--d:0.65s"/>
+        <circle cx="110" cy="370" r="5" fill="#2670A9" opacity="0.88"
+          class="fork-dot" style="--d:0.82s"/>
+        <text x="110" y="412"
+          font-family="'Cormorant Garamond',Georgia,serif" font-size="20" font-weight="600"
+          fill="rgba(39,69,92,0.92)" letter-spacing="0.04em" text-anchor="middle"
+          class="fork-label" style="--d:0.85s">Business Intelligence</text>
+        <text x="110" y="438"
+          font-family="'Open Sans',sans-serif" font-size="11" font-weight="600"
+          fill="#2670A9" letter-spacing="0.08em" text-anchor="middle" opacity="0.85"
+          class="fork-label" style="--d:0.89s">JPMORGANCHASE · PEOPLE ANALYTICS</text>
+
+        <!-- ── BRANCH 2: AI Builder (center-right, copper) ── -->
+        <line x1="365" y1="260" x2="365" y2="366"
+          stroke="#8F5A39" stroke-width="2" opacity="0.88"
+          class="fork-line" style="--d:0.72s"/>
+        <circle cx="365" cy="370" r="5" fill="#8F5A39" opacity="0.92"
+          class="fork-dot" style="--d:0.87s"/>
+        <text x="365" y="412"
+          font-family="'Cormorant Garamond',Georgia,serif" font-size="20" font-weight="600"
+          fill="rgba(39,69,92,0.92)" letter-spacing="0.04em" text-anchor="middle"
+          class="fork-label" style="--d:0.9s">AI Builder</text>
+        <text x="365" y="438"
+          font-family="'Open Sans',sans-serif" font-size="11" font-weight="600"
+          fill="#8F5A39" letter-spacing="0.08em" text-anchor="middle" opacity="0.9"
+          class="fork-label" style="--d:0.92s">LELAND 2026 AI BUILDER PROGRAM</text>
+
+        <!-- ── BRANCH 3: Career Coach (right, muted navy) ── -->
+        <path d="M 365 260 C 365 318 620 318 620 366"
+          fill="none" stroke="rgba(39,69,92,0.35)" stroke-width="2"
+          class="fork-line" style="--d:0.79s"/>
+        <circle cx="620" cy="370" r="5" fill="rgba(39,69,92,0.5)"
+          class="fork-dot" style="--d:0.92s"/>
+        <text x="620" y="412"
+          font-family="'Cormorant Garamond',Georgia,serif" font-size="20" font-weight="600"
+          fill="rgba(39,69,92,0.92)" letter-spacing="0.04em" text-anchor="middle"
+          class="fork-label" style="--d:0.95s">Career Coach</text>
+        <text x="620" y="438"
+          font-family="'Open Sans',sans-serif" font-size="11" font-weight="600"
+          fill="rgba(39,69,92,0.5)" letter-spacing="0.08em" text-anchor="middle"
+          class="fork-label" style="--d:0.97s">LELAND · AI CAREERS</text>
 
       </svg>
 
-      <!-- Mobile fallback: foundation stats + 3 current roles -->
+      <!-- Mobile fallback: linear journey + 3 current roles -->
       <div class="fork-mobile">
-        <div class="fork-mobile-foundation">
-          <div style="font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:rgba(244,239,231,0.85);line-height:1;">5</div>
-          <div style="font-family:'Open Sans',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(244,239,231,0.35);margin-bottom:16px;">Yrs · Recruiter &amp; Sourcer</div>
-          <div style="font-family:'Cormorant Garamond',serif;font-size:2.5rem;font-weight:300;color:rgba(244,239,231,0.45);line-height:1;">8</div>
-          <div style="font-family:'Open Sans',sans-serif;font-size:0.65rem;font-weight:700;letter-spacing:0.18em;text-transform:uppercase;color:rgba(244,239,231,0.22);">Yrs · Finance Industry</div>
+        <div class="fork-mobile-journey">
+          <div class="fork-mobile-stop fork-mobile-stop--recruit">EY · Recruiter · 2 yrs</div>
+          <div class="fork-mobile-stop fork-mobile-stop--muted">Fisher · Client Service · 2 yrs</div>
+          <div class="fork-mobile-stop fork-mobile-stop--recruit">Fisher · Sourcer · 2 yrs</div>
+          <div class="fork-mobile-stop fork-mobile-stop--muted">JPMorganChase · Sourcer · 2 yrs</div>
+          <div class="fork-mobile-stop fork-mobile-stop--pivot">JPMorganChase · BI Analyst · 2 yrs ↓</div>
         </div>
         <div class="fork-mobile-roles">
           <div class="fork-mobile-role">BI Analyst<span>JPMorganChase · People Analytics</span></div>
@@ -1934,6 +2443,8 @@
 
     </div>
   </section>
+
+  <div class="section-divider"></div>
 
   <!-- WORK -->
   <section id="work">
@@ -1957,11 +2468,11 @@
           <div class="work-card-body">
             <div class="work-index">01</div>
             <h3>AI Workflow Automation</h3>
-            <p>I build automated systems that cut analyst and recruiting work from hours to minutes. Claude handles the connections; I design what actually needs to happen with the output.</p>
+            <p>Designing end-to-end automated systems using Claude and connected tools — compressing analyst and recruiting workflows from <strong>hours into minutes</strong>, with minimal human handoffs.</p>
           </div>
         </div>
 
-        <!-- 02: Recruiting Data Platform -->
+        <!-- 02: Next-Gen Recruiting Dashboards -->
         <div class="work-card">
           <div class="work-card-img work-card-img--02">
             <!-- Database cylinder: data platform — no text -->
@@ -1983,8 +2494,8 @@
           </div>
           <div class="work-card-body">
             <div class="work-index">02</div>
-            <h3>Recruiting Data Platform</h3>
-            <p>Years of scattered People Analytics data, rebuilt into something people can actually open and use. Self-service, Databricks and Sigma, firm-wide. The goal was never better reports. It was fewer questions sent to me.</p>
+            <h3>Next-Gen Recruiting Dashboards</h3>
+            <p>Transforming legacy People Analytics assets into a self-service platform on Databricks and Sigma — millions of records, firm-wide scope. The goal isn't better reports; it's a system <strong>people can use without asking</strong>.</p>
           </div>
         </div>
 
@@ -2019,7 +2530,7 @@
           <div class="work-card-body">
             <div class="work-index">03</div>
             <h3>Career Coaching at Leland</h3>
-            <p>Career strategy built around your actual situation, not a template. Now expanding into AI careers coaching: helping people make the same move I'm making, from years in a field to working with data and AI, without acting like your experience doesn't count.</p>
+            <p>Holistic, data-driven career strategy for professionals navigating pivots and growth. Expanding into Leland's <strong>Break into AI Careers</strong> category — coaching people through the transition I'm living: from domain expertise into data, AI, and ML without starting from zero.</p>
           </div>
         </div>
 
@@ -2045,7 +2556,7 @@
           <div class="work-card-body">
             <div class="work-index">04</div>
             <h3>Building &amp; Documenting in Public</h3>
-            <p>Every project ships with documentation: what I built, how I built it, and the exact prompts used. A running record that's as useful for others as it is for me.</p>
+            <p>Every project ships with documentation: what I built, how I built it, and the <strong>exact prompts used</strong>. A running record that's as useful for others as it is for me.</p>
           </div>
         </div>
       </div>
@@ -2060,7 +2571,16 @@
       <div class="skills-grid section-reveal">
 
         <div class="skills-group">
-          <div class="skills-group-label">Analytics &amp; BI</div>
+          <div class="skills-group-icon">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="4"  y="18" width="6" height="16" rx="1" fill="rgba(38,112,169,0.22)"/>
+              <rect x="13" y="11" width="6" height="23" rx="1" fill="rgba(38,112,169,0.45)"/>
+              <rect x="22" y="6"  width="6" height="28" rx="1" fill="rgba(38,112,169,0.7)"/>
+              <rect x="31" y="14" width="4" height="20" rx="1" fill="rgba(38,112,169,0.35)"/>
+              <line x1="3" y1="34" x2="35" y2="34" stroke="rgba(38,112,169,0.25)" stroke-width="1.2" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="skills-group-label">Analytics &amp; Business Intelligence</div>
           <div class="skill-item"><span class="skill-dot"></span>SQL</div>
           <div class="skill-item"><span class="skill-dot"></span>Python</div>
           <div class="skill-item"><span class="skill-dot"></span>Tableau</div>
@@ -2071,19 +2591,39 @@
         </div>
 
         <div class="skills-group">
+          <div class="skills-group-icon">
+            <svg width="38" height="38" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <!-- Center node -->
+              <circle cx="19" cy="19" r="4.5" fill="rgba(143,90,57,0.75)"/>
+              <!-- Satellite nodes -->
+              <circle cx="19" cy="5"  r="2.5" fill="rgba(143,90,57,0.38)"/>
+              <circle cx="33" cy="19" r="2.5" fill="rgba(143,90,57,0.38)"/>
+              <circle cx="19" cy="33" r="2.5" fill="rgba(143,90,57,0.38)"/>
+              <circle cx="5"  cy="19" r="2.5" fill="rgba(143,90,57,0.38)"/>
+              <!-- Corner nodes -->
+              <circle cx="8"  cy="8"  r="2" fill="rgba(143,90,57,0.22)"/>
+              <circle cx="30" cy="8"  r="2" fill="rgba(143,90,57,0.22)"/>
+              <circle cx="30" cy="30" r="2" fill="rgba(143,90,57,0.22)"/>
+              <circle cx="8"  cy="30" r="2" fill="rgba(143,90,57,0.22)"/>
+              <!-- Connector lines -->
+              <line x1="19" y1="14.5" x2="19" y2="7.5"  stroke="rgba(143,90,57,0.3)" stroke-width="1"/>
+              <line x1="23.5" y1="19" x2="30.5" y2="19" stroke="rgba(143,90,57,0.3)" stroke-width="1"/>
+              <line x1="19" y1="23.5" x2="19" y2="30.5" stroke="rgba(143,90,57,0.3)" stroke-width="1"/>
+              <line x1="14.5" y1="19" x2="7.5" y2="19"  stroke="rgba(143,90,57,0.3)" stroke-width="1"/>
+              <line x1="22" y1="16" x2="28.5" y2="9.5"  stroke="rgba(143,90,57,0.18)" stroke-width="0.8"/>
+              <line x1="22" y1="22" x2="28.5" y2="28.5" stroke="rgba(143,90,57,0.18)" stroke-width="0.8"/>
+              <line x1="16" y1="22" x2="9.5"  y2="28.5" stroke="rgba(143,90,57,0.18)" stroke-width="0.8"/>
+              <line x1="16" y1="16" x2="9.5"  y2="9.5"  stroke="rgba(143,90,57,0.18)" stroke-width="0.8"/>
+            </svg>
+          </div>
           <div class="skills-group-label">AI &amp; Automation</div>
           <div class="skill-item"><span class="skill-dot skill-dot--copper"></span>Claude</div>
-          <div class="skill-item"><span class="skill-dot skill-dot--copper"></span>Cowork</div>
+          <div class="skill-item"><span class="skill-dot skill-dot--copper"></span>Claude Cowork</div>
+          <div class="skill-item"><span class="skill-dot skill-dot--copper"></span>Claude Code</div>
+          <div class="skill-item"><span class="skill-dot skill-dot--copper"></span>Claude Design</div>
+          <div class="skill-item"><span class="skill-dot skill-dot--copper"></span>Github</div>
           <div class="skill-item"><span class="skill-dot skill-dot--copper"></span>Prompt Engineering</div>
           <div class="skill-item"><span class="skill-dot skill-dot--copper"></span>AI Workflow Design</div>
-        </div>
-
-        <div class="skills-group">
-          <div class="skills-group-label">Recruiting &amp; People Ops</div>
-          <div class="skill-item"><span class="skill-dot skill-dot--blue"></span>LinkedIn Recruiter</div>
-          <div class="skill-item"><span class="skill-dot skill-dot--blue"></span>Workday ATS</div>
-          <div class="skill-item"><span class="skill-dot skill-dot--blue"></span>People Analytics</div>
-          <div class="skill-item"><span class="skill-dot skill-dot--blue"></span>Executive Sourcing</div>
         </div>
 
       </div>
@@ -2199,29 +2739,136 @@
   <!-- RECOMMENDATIONS -->
   <section id="recommendations">
     <div class="container">
-      <div class="section-label section-reveal">Recommendations</div>
-      <h2 class="section-reveal">What people say</h2>
-      <div class="rec-grid">
-
-        <!-- Rec 1: Maximilian W. — January 2026 -->
-        <div class="rec-card">
-          <span class="rec-quote-mark">"</span>
-          <p class="rec-quote">Andrew's thorough dedication and extensive background in recruiting felt like I was cheating somehow, like he was giving me the answers to a test. He revealed things I never would've considered otherwise and gave me a peek behind the curtain of what happens during the recruiting process with employers. I was looking to make a pretty big career change and he helped me reposition everything to increase my chances. The results have been night and day.</p>
-          <div class="rec-divider"></div>
-          <div class="rec-name">Maximilian W.</div>
-          <div class="rec-meta">Career Coaching via Leland · January 2026</div>
+      <div class="rec-header section-reveal">
+        <div class="rec-header-left">
+          <div class="section-label">Leland · Career Coaching</div>
+          <h2>Client Reviews</h2>
         </div>
-
-        <!-- Rec 2: Christine B. — August 2025, landed role at Well-Oiled Operations -->
-        <div class="rec-card">
-          <span class="rec-quote-mark">"</span>
-          <p class="rec-quote">At 60, navigating a career transition felt overwhelming, but Andrew gave me the confidence, structure, and encouragement I needed. He didn't just polish my resume and interview skills. He helped me reframe my story in a way that feels true to who I am. His feedback was always honest, practical, and supportive. I walked away from every session with clear next steps and renewed energy.</p>
-          <div class="rec-divider"></div>
-          <div class="rec-name">Christine B.</div>
-          <div class="rec-meta">Career Coaching via Leland · August 2025 · Landed a role at Well-Oiled Operations</div>
+        <div class="rec-header-right">
+          <div class="rec-arrows">
+            <button class="rec-arrow" id="recPrev" aria-label="Previous review">&#8592;</button>
+            <button class="rec-arrow" id="recNext" aria-label="Next review">&#8594;</button>
+          </div>
+          <a href="https://www.joinleland.com/coach/andrew-c-3/career-development" target="_blank" rel="noopener"
+            style="font-family:var(--font-ui);font-size:0.7rem;font-weight:600;letter-spacing:0.14em;text-transform:uppercase;color:var(--copper);text-decoration:none;border-bottom:1px solid rgba(143,90,57,0.3);padding-bottom:2px;white-space:nowrap;">
+            View all on Leland ↗
+          </a>
         </div>
-
       </div>
+      <div class="rec-carousel section-reveal" id="recCarousel">
+        <div class="rec-track" id="recTrack">
+
+          <!-- 1: Maximilian W. -->
+          <div class="rec-card">
+            <div class="rec-stars">★★★★★</div>
+            <span class="rec-quote-mark">"</span>
+            <p class="rec-quote">Andrew's thorough dedication and extensive background in recruiting felt like I was cheating somehow, like he was giving me the answers to a test. He revealed things I never would've considered otherwise and gave me a peek behind the curtain of what happens during the recruiting process with employers. I was looking to make a pretty big career change and he helped me reposition everything to increase my chances. The results have been night and day.</p>
+            <div class="rec-divider"></div>
+            <div class="rec-name">Maximilian W.</div>
+            <div class="rec-meta">Career Coaching via Leland · January 2026</div>
+          </div>
+
+          <!-- 2: Eben A. — landed at Prologis -->
+          <div class="rec-card">
+            <div class="rec-stars">★★★★★</div>
+            <span class="rec-quote-mark">"</span>
+            <p class="rec-quote">Andrew has been a source of professional insight and a reliable sounding board. After recently being laid off, I found myself back in the job search for the first time in seven years and needing to reorient to a very different application process. When I reached out to Andrew, he confidently assured me he could coach me on how to stand out in an increasingly AI-driven hiring landscape and help refine my resume for maximum visibility. Through his expertise and patient guidance, I am now confident in pursuing new opportunities and effectively highlighting my most important strengths!</p>
+            <div class="rec-divider"></div>
+            <div class="rec-name">Eben A.</div>
+            <div class="rec-meta">Career Coaching via Leland · December 2025</div>
+            <span class="rec-outcome">Landed a role at Prologis</span>
+          </div>
+
+          <!-- 3: Christine B. — landed at Well-Oiled Operations -->
+          <div class="rec-card">
+            <div class="rec-stars">★★★★★</div>
+            <span class="rec-quote-mark">"</span>
+            <p class="rec-quote">At 60, navigating a career transition felt overwhelming, but Andrew gave me the confidence, structure, and encouragement I needed. He didn't just polish my resume and interview skills. He helped me reframe my story in a way that feels true to who I am. His feedback was always honest, practical, and supportive. I walked away from every session with clear next steps and renewed energy.</p>
+            <div class="rec-divider"></div>
+            <div class="rec-name">Christine B.</div>
+            <div class="rec-meta">Career Coaching via Leland · August 2025</div>
+            <span class="rec-outcome">Landed a role at Well-Oiled Operations</span>
+          </div>
+
+          <!-- 4: Lorena E. -->
+          <div class="rec-card">
+            <div class="rec-stars">★★★★★</div>
+            <span class="rec-quote-mark">"</span>
+            <p class="rec-quote">I had a great experience working with Andrew on my resume. His support and reassurance gave me the confidence to apply in this competitive job market.</p>
+            <div class="rec-divider"></div>
+            <div class="rec-name">Lorena E.</div>
+            <div class="rec-meta">Career Coaching via Leland · January 2026</div>
+          </div>
+
+          <!-- 5: Stephen M. — landed at Paradigm -->
+          <div class="rec-card">
+            <div class="rec-stars">★★★★★</div>
+            <span class="rec-quote-mark">"</span>
+            <p class="rec-quote">Andrew was really helpful in reviewing my resume and giving me useful pointers on structure and font types that work best with the new resume scanning software and AI screenings. He regularly checked in with me on application progress and offered useful recommendations on different networking opportunities. I really appreciate his expertise and support.</p>
+            <div class="rec-divider"></div>
+            <div class="rec-name">Stephen M.</div>
+            <div class="rec-meta">Career Coaching via Leland · January 2026</div>
+            <span class="rec-outcome">Landed a role at Paradigm</span>
+          </div>
+
+          <!-- 6: Jeremy M. -->
+          <div class="rec-card">
+            <div class="rec-stars">★★★★★</div>
+            <span class="rec-quote-mark">"</span>
+            <p class="rec-quote">Andrew provided actionable steps right away for me, especially when it came to fixing up my LinkedIn profile and resume to start getting interviews while applying. He's a great down-to-earth professional to work alongside. Thanks!</p>
+            <div class="rec-divider"></div>
+            <div class="rec-name">Jeremy M.</div>
+            <div class="rec-meta">Career Coaching via Leland · September 2025</div>
+          </div>
+
+          <!-- 7: Jodi D. — landed at General Motors -->
+          <div class="rec-card">
+            <div class="rec-stars">★★★★★</div>
+            <span class="rec-quote-mark">"</span>
+            <p class="rec-quote">I appreciated Andrew's direct communication of his immediate strategies for updating my resume and best networking tips. He was friendly while staying professional. He allowed me to share briefly about my background, goals, and current experiences re-entering the job seeker space. I am excited about working with him to refine my resume for my current goals. I would definitely recommend him to anyone looking to up their game in today's recruiting arena.</p>
+            <div class="rec-divider"></div>
+            <div class="rec-name">Jodi D.</div>
+            <div class="rec-meta">Career Coaching via Leland · July 2025</div>
+            <span class="rec-outcome">Landed a role at General Motors</span>
+          </div>
+
+          <!-- 8: Monica E. -->
+          <div class="rec-card">
+            <div class="rec-stars">★★★★★</div>
+            <span class="rec-quote-mark">"</span>
+            <p class="rec-quote">I worked with Andrew to clarify my career direction and strengthen my professional materials. He provided thoughtful feedback on my resume and offered constructive suggestions throughout the process. I appreciated his time and insights as I prepared for next steps in my career.</p>
+            <div class="rec-divider"></div>
+            <div class="rec-name">Monica E.</div>
+            <div class="rec-meta">Career Coaching via Leland · July 2025</div>
+          </div>
+
+          <!-- 9: Virginia S. -->
+          <div class="rec-card">
+            <div class="rec-stars">★★★★★</div>
+            <span class="rec-quote-mark">"</span>
+            <p class="rec-quote">Andrew was knowledgeable and direct with immediate ideas for solutions to my challenges. I appreciated his direct communication of strategies for updating my resume and best networking tips. He was friendly while staying professional, and I would definitely recommend him to anyone looking to up their game in today's recruiting arena.</p>
+            <div class="rec-divider"></div>
+            <div class="rec-name">Virginia S.</div>
+            <div class="rec-meta">Career Coaching via Leland · August 2025</div>
+          </div>
+
+          <!-- 10: Jeff P. -->
+          <div class="rec-card">
+            <div class="rec-stars">★★★★★</div>
+            <span class="rec-quote-mark">"</span>
+            <p class="rec-quote">Very helpful and enjoyed his event. Nice feedback to make my resume have more actions and metrics.</p>
+            <div class="rec-divider"></div>
+            <div class="rec-name">Jeff P.</div>
+            <div class="rec-meta">Event via Leland · March 2026</div>
+          </div>
+
+        </div><!-- /rec-track -->
+      </div><!-- /rec-carousel -->
+
+      <div class="rec-controls">
+        <div class="rec-dots" id="recDots"></div>
+      </div>
+
     </div>
   </section>
 
@@ -2238,15 +2885,15 @@
           <div class="contact-path">
             <div class="contact-path-label">Career Guidance</div>
             <div class="contact-path-title">Find your direction.</div>
-            <div class="contact-path-desc">Pivot, strategy, breaking into AI, resume, LinkedIn. If you're trying to figure out your next move, get a real framework from someone who's lived the transition and built the data around it.</div>
-            <a href="https://www.joinleland.com/coach/andrew-c-3" class="contact-path-cta contact-path-cta--copper" target="_blank" rel="noopener">Free 15-Min Consult ↗</a>
+            <div class="contact-path-desc">Pivot, strategy, breaking into AI, resume, LinkedIn — if you're trying to figure out your next move, get a real framework from someone who's <strong>lived the transition and built the data around it</strong>.</div>
+            <a href="https://www.joinleland.com/coach/andrew-c-3/career-development" class="contact-path-cta contact-path-cta--copper" target="_blank" rel="noopener">Free 15-Min Consult ↗</a>
           </div>
 
           <!-- Path 2: People Analytics -->
           <div class="contact-path">
             <div class="contact-path-label">People Analytics</div>
-            <div class="contact-path-title">Let's Swap Ideas.</div>
-            <div class="contact-path-desc">In BI, recruiting data, or workforce analytics? I'm always up for a virtual coffee, no agenda, just two people who like talking about people data and what it actually means.</div>
+            <div class="contact-path-title">Let's swap notes.</div>
+            <div class="contact-path-desc">In BI, recruiting data, or workforce analytics? I'm always up for a <strong>virtual coffee</strong> — no agenda, just two people who like talking about people data and what it actually means.</div>
             <a href="https://www.linkedin.com/in/abcause25/" class="contact-path-cta" target="_blank" rel="noopener">Connect on LinkedIn ↗</a>
           </div>
 
@@ -2254,20 +2901,19 @@
           <div class="contact-path">
             <div class="contact-path-label">AI Collaboration</div>
             <div class="contact-path-title">Build something.</div>
-            <div class="contact-path-desc">Want to learn what's actually possible with AI, or have an idea worth pursuing together? I build these for fun. Bring the curiosity, I'll bring the tools.</div>
+            <div class="contact-path-desc">Want to learn what's actually possible with AI, or have an idea worth pursuing together? I build these for fun — <strong>bring the curiosity, I'll bring the tools</strong>.</div>
             <a href="mailto:abcause2592@gmail.com" class="contact-path-cta">Send a Note ↗</a>
           </div>
 
         </div>
 
-        <div class="contact-reply">Replies within 3 business days. Always.</div>
       </div>
     </div>
   </section>
 
   <footer>
     <p>© 2026 Andrew Cause</p>
-    <p style="color:rgba(244,239,231,0.35);font-family:var(--font-ui);font-size:0.65rem;font-weight:600;letter-spacing:0.09em;text-transform:uppercase;">Built with AI</p>
+    <p style="color:rgba(244,239,231,0.35);">Built with AI</p>
   </footer>
 
 
@@ -2616,34 +3262,31 @@
       sectionObserver.observe(el);
     });
 
-    /* ─── STAGGERED REVEAL (work cards, project cards, contact paths) ─── */
-    // Staggered reveal for work cards
-    const workCards = document.querySelectorAll('.work-card');
-    const workObs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); workObs.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    workCards.forEach(c => workObs.observe(c));
+    /* ─── GRID STAGGER (work cards, project cards) ─── */
+    const gridObserver = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const grid = entry.target;
+          const children = grid.querySelectorAll('.work-card, .project-card');
+          children.forEach((child, i) => {
+            setTimeout(() => {
+              child.style.opacity = '1';
+              child.style.transform = 'translateY(0)';
+            }, i * 90);
+          });
+          gridObserver.unobserve(grid);
+        }
+      });
+    }, { threshold: 0.05 });
 
-    // Staggered reveal for project cards
-    const projCards = document.querySelectorAll('.project-card');
-    const projObs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); projObs.unobserve(e.target); } });
-    }, { threshold: 0.08 });
-    projCards.forEach((c, i) => { c.style.setProperty('--d', (i * 0.06) + 's'); projObs.observe(c); });
-
-    // Staggered reveal for recommendation cards
-    const recCards = document.querySelectorAll('.rec-card');
-    const recObs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); recObs.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    recCards.forEach((c, i) => { c.style.setProperty('--d', (i * 0.12) + 's'); recObs.observe(c); });
-
-    // Staggered reveal for contact paths
-    const contactPaths = document.querySelectorAll('.contact-path');
-    const cpObs = new IntersectionObserver(entries => {
-      entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); cpObs.unobserve(e.target); } });
-    }, { threshold: 0.1 });
-    contactPaths.forEach((c, i) => { c.style.setProperty('--d', (i * 0.12) + 's'); cpObs.observe(c); });
+    document.querySelectorAll('.work-grid, .projects-grid').forEach(grid => {
+      grid.querySelectorAll('.work-card, .project-card').forEach(card => {
+        card.style.opacity = '0';
+        card.style.transform = 'translateY(18px)';
+        card.style.transition = 'opacity 0.55s cubic-bezier(0.4,0,0.2,1), transform 0.55s cubic-bezier(0.4,0,0.2,1), border-top-color 0.25s';
+      });
+      gridObserver.observe(grid);
+    });
 
     /* ─── HAMBURGER NAV ─── */
     const navToggle = document.getElementById('navToggle');
@@ -2666,17 +3309,128 @@
       words[current].classList.add('active');
     }, 2200);
 
-    /* ─── FORK DRAW ANIMATION ─── */
-    const forkSvg = document.querySelector('.fork-svg');
-    if (forkSvg) {
-      const forkObs = new IntersectionObserver(entries => {
+    /* ─── FORK DRAW + COUNT-UP ANIMATION ─── */
+    (function () {
+      const forkSvg = document.querySelector('.fork-svg');
+      if (!forkSvg) return;
+
+      function easeOut(t) { return 1 - Math.pow(1 - t, 3); }
+
+      function countUp(el, end, duration, delay) {
+        setTimeout(function () {
+          var start = null;
+          function step(ts) {
+            if (!start) start = ts;
+            var progress = Math.min((ts - start) / duration, 1);
+            el.textContent = Math.round(easeOut(progress) * end);
+            if (progress < 1) requestAnimationFrame(step);
+            else el.textContent = end;
+          }
+          requestAnimationFrame(step);
+        }, delay);
+      }
+
+      const forkObs = new IntersectionObserver(function (entries) {
         if (entries[0].isIntersecting) {
-          forkSvg.classList.add('drawn');
           forkObs.unobserve(forkSvg);
+
+          // Draw the tree
+          forkSvg.classList.add('drawn');
+
+          // Count up after lines start appearing
+          var five  = document.getElementById('count-five');
+          var eight = document.getElementById('count-eight');
+          if (five)  countUp(five,  5,  900,  300);
+          if (eight) countUp(eight, 8, 1200,  480);
         }
-      }, { threshold: 0.25 });
+      }, { threshold: 0.4 });
+
       forkObs.observe(forkSvg);
-    }
+    })();
+
+
+    // ── RECOMMENDATIONS CAROUSEL ──
+    (function() {
+      const carousel = document.getElementById('recCarousel');
+      const track    = document.getElementById('recTrack');
+      const dotsEl   = document.getElementById('recDots');
+      const prevBtn  = document.getElementById('recPrev');
+      const nextBtn  = document.getElementById('recNext');
+      if (!track) return;
+
+      const cards = Array.from(track.querySelectorAll('.rec-card'));
+      const total = cards.length;
+      let current = 0;
+      let autoTimer;
+
+      function visible() {
+        const w = window.innerWidth;
+        return w <= 580 ? 1 : w <= 900 ? 2 : 3;
+      }
+
+      function maxStep() { return total - visible(); }
+
+      function cardPx() { return cards[0].offsetWidth; }
+
+      function buildDots() {
+        dotsEl.innerHTML = '';
+        const steps = maxStep() + 1;
+        for (let i = 0; i < steps; i++) {
+          const d = document.createElement('button');
+          d.className = 'rec-dot' + (i === 0 && current === 0 ? ' active' : '');
+          d.setAttribute('aria-label', 'Review set ' + (i + 1));
+          d.addEventListener('click', () => goTo(i));
+          dotsEl.appendChild(d);
+        }
+      }
+
+      function updateDots() {
+        dotsEl.querySelectorAll('.rec-dot').forEach((d, i) => {
+          d.classList.toggle('active', i === current);
+        });
+      }
+
+      function goTo(idx) {
+        current = Math.max(0, Math.min(idx, maxStep()));
+        track.style.transform = 'translateX(-' + (current * cardPx()) + 'px)';
+        updateDots();
+        resetAuto();
+      }
+
+      function next() { goTo(current >= maxStep() ? 0 : current + 1); }
+      function prev() { goTo(current <= 0 ? maxStep() : current - 1); }
+
+      function resetAuto() {
+        clearInterval(autoTimer);
+        autoTimer = setInterval(next, 5000);
+      }
+
+      prevBtn.addEventListener('click', prev);
+      nextBtn.addEventListener('click', next);
+
+      carousel.addEventListener('mouseenter', () => clearInterval(autoTimer));
+      carousel.addEventListener('mouseleave', resetAuto);
+
+      // Swipe
+      let startX = 0;
+      carousel.addEventListener('touchstart', e => { startX = e.touches[0].clientX; }, { passive: true });
+      carousel.addEventListener('touchend', e => {
+        const diff = startX - e.changedTouches[0].clientX;
+        if (Math.abs(diff) > 40) diff > 0 ? next() : prev();
+      });
+
+      // Rebuild on resize
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => { current = 0; buildDots(); goTo(0); }, 200);
+      });
+
+      buildDots();
+      resetAuto();
+    })();
+
+
   </script>
 
 </body>
