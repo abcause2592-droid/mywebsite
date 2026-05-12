@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=1200">
+  <title>College ROI Analysis — Duke, UNC & UT Austin</title>
+  <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+  <style>
+    :root {
+      --color-accent:      #8F5A39;   /* copper — used for tuition bars + accents */
+      --color-primary:     #27455C;   /* navy — Duke + structure */
+      --color-unc:         #4B9CD3;   /* carolina blue — UNC */
+      --color-ut:          #BF5700;   /* burnt orange — UT Austin */
+      --color-avg:         #A0A0A0;   /* gray — national avg */
+      --color-bg:          #F4EFE7;
+      --color-text:        #202020;
+      --color-base:        #FFFFFF;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    html, body {
+      width: 1200px;
+      height: 700px;
+      overflow: hidden;
+      background: var(--color-bg);
+      color: var(--color-text);
+      font-family: 'Open Sans', sans-serif;
+    }
+
+    .page {
+      width: 1200px;
+      height: 700px;
+      padding: 32px 48px 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    /* ── HEADER BAR ── */
+    .header-bar {
+      display: flex;
+      align-items: flex-start;
+      border-left: 4px solid var(--color-accent);
+      padding-left: 18px;
+    }
+
+    .header-content { flex: 1; }
+
+    .kicker {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      color: var(--color-accent);
+      margin-bottom: 5px;
+    }
+
+    .headline {
+      font-family: Georgia, 'Times New Roman', serif;
+      font-weight: 300;
+      font-size: 27px;
+      line-height: 1.25;
+      color: var(--color-primary);
+    }
+
+    .headline em {
+      font-style: normal;
+      font-weight: 600;
+    }
+
+    .school-tags {
+      display: flex;
+      gap: 8px;
+      margin-top: 8px;
+      align-items: center;
+    }
+
+    /* Each tag is color-filled to match its chart bar — consistent school identity */
+    .tag {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.8px;
+      text-transform: uppercase;
+      padding: 4px 11px;
+      color: #fff;
+    }
+
+    .tag-duke { background: var(--color-primary); }
+    .tag-unc  { background: var(--color-unc); }
+    .tag-ut   { background: var(--color-ut); }
+
+    .tag-legend {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: rgba(32,32,32,0.38);
+      margin-left: 6px;
+    }
+
+    /* ── CHART ── */
+    .chart-section {
+      flex: 1;
+      background: var(--color-base);
+      border-top: 3px solid var(--color-primary);
+      border-bottom: 1px solid rgba(39,69,92,0.1);
+      border-left: 1px solid rgba(39,69,92,0.1);
+      border-right: 1px solid rgba(39,69,92,0.1);
+      padding: 16px 24px 10px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .chart-header {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+    .chart-label {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1.5px;
+      color: var(--color-primary);
+    }
+
+    /* Inline legend — shows what the two bar colors mean */
+    .chart-legend {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.6px;
+      text-transform: uppercase;
+      color: #666;
+    }
+
+    .legend-swatch {
+      width: 12px;
+      height: 12px;
+      flex-shrink: 0;
+    }
+
+    .swatch-earnings {
+      background: linear-gradient(135deg, var(--color-primary) 33%, var(--color-unc) 33% 66%, var(--color-ut) 66%);
+    }
+
+    .swatch-tuition { background: var(--color-accent); }
+
+    .chart-wrap {
+      flex: 1;
+      position: relative;
+    }
+
+    /* ── THREE STATS ── */
+    .stats-row {
+      display: flex;
+      gap: 12px;
+    }
+
+    .stat {
+      flex: 1;
+      padding: 14px 18px 16px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* Each stat card uses that school's color — consistent with chart + tags */
+    .stat-duke { background: var(--color-primary); }
+    .stat-unc  { background: var(--color-unc); }
+    .stat-ut   { background: var(--color-ut); }
+
+    .stat::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0;
+      width: 36px; height: 3px;
+      background: var(--color-accent);
+    }
+
+    .stat-number {
+      font-family: Georgia, serif;
+      font-weight: 300;
+      font-size: 36px;
+      color: #fff;
+      line-height: 1;
+      margin-bottom: 5px;
+      letter-spacing: -1px;
+    }
+
+    .stat-desc {
+      font-size: 10px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.8px;
+      color: rgba(255,255,255,0.65);
+      line-height: 1.45;
+    }
+
+    .stat-desc strong {
+      color: rgba(255,255,255,0.95);
+    }
+
+    /* ── FOOTER ── */
+    .footer {
+      border-top: 1px solid rgba(143,90,57,0.25);
+      padding-top: 8px;
+      font-size: 10px;
+      font-weight: 600;
+      color: #aaa;
+      letter-spacing: 0.4px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+
+    <!-- HEADLINE -->
+    <div class="header-bar">
+      <div class="header-content">
+        <div class="kicker">College ROI · The Data Breakdown</div>
+        <h1 class="headline">
+          Most people pick a school based on prestige. Wrong metric.<br>
+          UNC and UT Austin deliver <em>near-Duke earnings at a fraction of the cost</em>. The chart says it all.
+        </h1>
+        <div class="school-tags">
+          <span class="tag tag-duke">Duke &nbsp;$97,800 / yr earnings</span>
+          <span class="tag tag-unc">UNC &nbsp;$72,200 / yr earnings</span>
+          <span class="tag tag-ut">UT Austin &nbsp;$75,121 / yr earnings</span>
+          <span class="tag-legend">· 10-yr median</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CHART -->
+    <div class="chart-section">
+      <div class="chart-header">
+        <div class="chart-label">What you pay vs. what you earn — 10 years out</div>
+        <div class="chart-legend">
+          <div class="legend-item">
+            <div class="legend-swatch swatch-earnings"></div>
+            10-yr median earnings
+          </div>
+          <div class="legend-item">
+            <div class="legend-swatch swatch-tuition"></div>
+            In-state tuition (annual)
+          </div>
+        </div>
+      </div>
+      <div class="chart-wrap">
+        <canvas id="chart"></canvas>
+      </div>
+    </div>
+
+    <!-- THREE STATS — each card matches its school's chart color -->
+    <div class="stats-row">
+      <div class="stat stat-duke">
+        <div class="stat-number">$68,758</div>
+        <div class="stat-desc"><strong>Duke in-state tuition</strong><br>Highest of the three — and 147% above the national avg of $27,816</div>
+      </div>
+      <div class="stat stat-unc">
+        <div class="stat-number">$8,994</div>
+        <div class="stat-desc"><strong>UNC in-state tuition</strong><br>Earns $72,200 — just $25K less than Duke — for $60K less per year in cost</div>
+      </div>
+      <div class="stat stat-ut">
+        <div class="stat-number">$11,688</div>
+        <div class="stat-desc"><strong>UT Austin in-state tuition</strong><br>Earns $75,121 — actually outearns UNC — for roughly the same low cost</div>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="footer">
+      Data: US Dept of Education College Scorecard &nbsp;·&nbsp; Bureau of Economic Analysis &nbsp;·&nbsp; NCES
+    </div>
+
+  </div>
+
+  <script>
+    const ctx = document.getElementById('chart').getContext('2d');
+
+    const labels   = ['National Avg', 'UNC', 'UT Austin', 'Duke'];
+    const earnings = [70114, 72200, 75121, 97800];
+    const tuition  = [27816,  8994, 11688, 68758];
+
+    // Earnings bars: each school's own color — matches tags and stat cards
+    const earningsFill = [
+      'rgba(160,160,160,0.80)',   // National Avg — neutral gray
+      'rgba(75,156,211,0.90)',    // UNC — carolina blue
+      'rgba(191,87,0,0.90)',      // UT Austin — burnt orange
+      'rgba(39,69,92,0.92)',      // Duke — deep navy
+    ];
+
+    // Tuition bars: ALL the same copper — cost is cost, one color tells the story
+    const tuitionFill = [
+      'rgba(143,90,57,0.30)',     // National Avg tuition — muted
+      'rgba(143,90,57,0.75)',     // UNC tuition
+      'rgba(143,90,57,0.75)',     // UT Austin tuition
+      'rgba(143,90,57,0.90)',     // Duke tuition — same color, much longer bar
+    ];
+
+    new Chart(ctx, {
+      type: 'bar',
+      data: {
+        labels,
+        datasets: [
+          {
+            label: '10-yr Median Earnings',
+            data: earnings,
+            backgroundColor: earningsFill,
+            borderColor: earningsFill,
+            borderWidth: 0,
+            borderRadius: 2,
+            barPercentage: 0.60,
+            categoryPercentage: 0.80,
+          },
+          {
+            label: 'In-State Tuition',
+            data: tuition,
+            backgroundColor: tuitionFill,
+            borderColor: tuitionFill,
+            borderWidth: 0,
+            borderRadius: 2,
+            barPercentage: 0.60,
+            categoryPercentage: 0.80,
+          }
+        ]
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        indexAxis: 'y',
+        plugins: {
+          legend: { display: false },  /* using custom HTML legend above */
+          tooltip: {
+            bodyFont: { family: 'Open Sans', size: 11 },
+            callbacks: {
+              label: (c) => ` ${c.dataset.label}: $${c.parsed.x.toLocaleString()}`
+            }
+          }
+        },
+        scales: {
+          x: {
+            grid: { color: 'rgba(39,69,92,0.06)', drawTicks: false },
+            border: { display: false },
+            ticks: {
+              font: { family: 'Open Sans', size: 10, weight: '600' },
+              color: '#aaa',
+              maxTicksLimit: 8,
+              callback: v => '$' + (v / 1000).toFixed(0) + 'K'
+            }
+          },
+          y: {
+            grid: { display: false },
+            border: { display: false },
+            ticks: {
+              font: { family: 'Open Sans', size: 11, weight: '600' },
+              color: '#333',
+              padding: 6,
+            },
+            afterFit: (axis) => { axis.width = 110; }
+          }
+        }
+      }
+    });
+  </script>
+</body>
+</html>

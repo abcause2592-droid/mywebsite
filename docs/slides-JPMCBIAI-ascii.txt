@@ -1,0 +1,292 @@
+================================================================================
+  RECRUITING BI + AI: WHERE THE CLAUDE TOOLS FIT
+  Research Brief Presentation  |  JPMC  |  April 2026
+================================================================================
+
+  Audience:  Head of Recruiting + BI Leadership
+  Goal:      Get buy-in to engage the internal pilot team and run a
+             scoped AI test within Recruiting BI
+
+================================================================================
+
+
+
+
++------------------------------------------------------------------------+
+|                                                              [01 / 10] |
+|                                                                        |
+|                                                                        |
+|             RECRUITING BI + AI:                                        |
+|          WHERE THE CLAUDE TOOLS FIT                                    |
+|                                                                        |
+|                                                                        |
+|    Audience:  Head of Recruiting + BI Leadership, JPMC                |
+|    Goal:      Identify where AI tools fit today — and next steps      |
+|                                                                        |
+|                                                    April 2026          |
+|                                                                        |
++------------------------------------------------------------------------+
+
+  Visual: Clean title card. JPMC wordmark bottom-right.
+          No chart. No diagram. Just the frame.
+
+
+
+
++------------------------------------------------------------------------+
+|  CONTEXT                                                     [02 / 10] |
+|                                                                        |
+|  THE STACK HAS A GAP                                                   |
+|  ───────────────────────────────────────────                           |
+|                                                                        |
+|   Sigma ─────────────────────────── Governed, structured reporting    |
+|   Databricks ───────────────────── Pipeline + modeled data            |
+|   ??? ──────────────────────────── Quick analysis, one-off requests   |
+|                                                                        |
+|   Sigma and Databricks handle the governed layer well.                |
+|   Ad-hoc questions still land as manual tickets.                      |
+|   That gap isn't a tool problem — it's a workflow problem.            |
+|                                                                        |
++------------------------------------------------------------------------+
+
+  Visual: Three-row stack diagram. Top two rows solid lines.
+          Bottom row dashed, labeled "manual work / ticket queue."
+
+  Speaker notes:
+    The team is well-tooled for structured BI. The pain is the
+    in-between work — faster than a ticket, more complex than a filter.
+    That's where AI has the most leverage.
+
+
+
+
++------------------------------------------------------------------------+
+|  CONTEXT                                                     [03 / 10] |
+|                                                                        |
+|  CLAUDE IS ALREADY HERE                                                |
+|  ───────────────────────────────────────────                           |
+|                                                                        |
+|   ·  200,000+ JPMC employees on LLM Suite                             |
+|   ·  Internal Claude pilot active (small pockets, right now)          |
+|   ·  Copilot Cowork (Wave 3 M365) is built on Claude                  |
+|   ·  C-suite governance council in place                               |
+|                                                                        |
+|   92% of CHROs expect AI to reshape recruiting workflows              |
+|   within 2 years.                                     — SHRM, 2025    |
+|                                                                        |
+|   This isn't a future bet. The runway is already built.               |
+|                                                                        |
++------------------------------------------------------------------------+
+
+  Visual: Timeline bar showing "LLM Suite → Pilot → Cowork Wave 3."
+          SHRM stat as a pull quote, large font.
+
+  Speaker notes:
+    Framing matters here. This is not "should we try AI." The org
+    has already decided yes. The question is where Recruiting BI
+    specifically plugs in — and who to talk to first.
+
+
+
+
++------------------------------------------------------------------------+
+|  FINDING 1                                                   [04 / 10] |
+|                                                                        |
+|  COWORK FILLS THE "BETWEEN THE TOOLS" LAYER                           |
+|  ───────────────────────────────────────────                           |
+|                                                                        |
+|   What it does:                                                        |
+|   ·  Generates reports from files — no terminal, no code              |
+|   ·  Formats, summarizes, packages output for stakeholders            |
+|   ·  Connects to Calendar, Gmail, Slack, Sigma out of the box         |
+|                                                                        |
+|   Who it fits:                                                         |
+|   Non-technical BI team members who own the last mile of a report —   |
+|   the formatting, packaging, and sending.                              |
+|                                                                        |
++------------------------------------------------------------------------+
+
+  Visual: Before/After workflow. Left: analyst → manual formatting →
+          email. Right: analyst → Cowork → stakeholder. One step removed.
+
+  Speaker notes:
+    Cowork doesn't replace Sigma or Databricks. It handles the work
+    that happens after the data is pulled — the part that costs
+    30–60 min per request and requires no SQL to solve.
+
+
+
+
++------------------------------------------------------------------------+
+|  FINDING 2                                                   [05 / 10] |
+|                                                                        |
+|  CLAUDE CODE CONNECTS TO DATABRICKS                                    |
+|  ───────────────────────────────────────────                           |
+|                                                                        |
+|   ·  Official Databricks MCP server — available now                   |
+|   ·  Uses a read-only Service Principal — no write risk               |
+|   ·  Lets analysts query and prototype in natural language             |
+|   ·  Pipeline work stays in version control                            |
+|                                                                        |
+|   Open question:                                                       |
+|   Does IT allow MCP connections from the internal network?            |
+|                                                                        |
+|   This answer changes the entire path forward.                        |
+|                                                                        |
++------------------------------------------------------------------------+
+
+  Visual: Simple architecture diagram: Claude Code ↔ MCP ↔ Databricks.
+          Red flag icon on "IT access" node.
+
+  Speaker notes:
+    This is the power-user path. Claude Code is a terminal tool —
+    it needs some technical comfort. Best fit: senior analysts or the
+    internal pilot team. IT access is the gating question before
+    anything else on this slide matters.
+
+
+
+
++------------------------------------------------------------------------+
+|  FINDING 3                                                   [06 / 10] |
+|                                                                        |
+|  SIGMA SPEAKS NATURAL LANGUAGE TOO                                     |
+|  ───────────────────────────────────────────                           |
+|                                                                        |
+|   ·  Sigma has its own MCP server                                      |
+|   ·  Inherits existing permissions — nothing new provisioned          |
+|   ·  Enables natural language queries against live Sigma data         |
+|                                                                        |
+|   The workflow:                                                        |
+|   Ask Claude → Claude queries Sigma → Returns formatted result        |
+|                                                                        |
+|   No new data access. No IT exception.                                |
+|   Runs entirely on what the team already has.                         |
+|                                                                        |
++------------------------------------------------------------------------+
+
+  Visual: Linear flow: User prompt → Claude → Sigma MCP → Data result.
+          "Existing permissions" badge on the Sigma node.
+
+  Speaker notes:
+    This is the lowest-friction path to AI-assisted BI. No pipeline
+    changes, no new credentials. If the team already lives in Sigma,
+    this is the fastest first win.
+
+
+
+
++------------------------------------------------------------------------+
+|  FINDING 4                                                   [07 / 10] |
+|                                                                        |
+|  EARLY CAREERS IS THE CLEAREST STARTING POINT                         |
+|  ───────────────────────────────────────────                           |
+|                                                                        |
+|   ·  High-volume, repeatable cohort workflows                         |
+|   ·  Structured data: applications, stages, outcomes                  |
+|   ·  44% of Early Careers BI pain tied to Gem limitations             |
+|      (Gem, 2024)                                                       |
+|                                                                        |
+|   Before committing:                                                   |
+|   Talk to one Early Careers PM.                                       |
+|   Confirm the Gem pain point is real — not assumed.                   |
+|                                                                        |
++------------------------------------------------------------------------+
+
+  Visual: Funnel diagram of Early Careers workflow stages.
+          Gem labeled as "bottleneck" with 44% stat callout.
+
+  Speaker notes:
+    "Clearest" doesn't mean easiest — it means the problem is the most
+    defined. Cohort reporting is repetitive, well-scoped, and produces
+    measurable output. Good conditions for a pilot.
+
+
+
+
++------------------------------------------------------------------------+
+|  SO WHAT                                                     [08 / 10] |
+|                                                                        |
+|  THIS IS A CAPACITY STORY                                              |
+|  ───────────────────────────────────────────                           |
+|                                                                        |
+|                                                                        |
+|         Same team.                                                     |
+|         More judgment work.                                            |
+|         No stack change required.                                      |
+|                                                                        |
+|                                                                        |
+|   AI doesn't replace the BI team.                                     |
+|   It absorbs the manual work — so the team can move faster            |
+|   on analysis that actually requires a human.                         |
+|                                                                        |
++------------------------------------------------------------------------+
+
+  Visual: Single large graphic: two columns.
+          Left: "Today" (analyst time split across manual + analysis).
+          Right: "With AI" (same analyst, less manual, more analysis).
+
+  Speaker notes:
+    Reframe away from "AI tool adoption" toward "team capacity."
+    This audience is more likely to support it if it's positioned as
+    leverage — not experimentation, not replacement.
+
+
+
+
++------------------------------------------------------------------------+
+|  OPEN QUESTIONS                                              [09 / 10] |
+|                                                                        |
+|  THREE QUESTIONS THAT NEED ANSWERS FIRST                              |
+|  ───────────────────────────────────────────                           |
+|                                                                        |
+|   1.  Who is on the internal Claude pilot team?                       |
+|       They are the right first conversation.                          |
+|                                                                        |
+|   2.  Will IT allow MCP connections from the internal network?        |
+|       This gates both the Databricks and Sigma integration paths.     |
+|                                                                        |
+|   3.  Does M365 licensing include Copilot Cowork Wave 3?              |
+|       Determines whether Cowork is already available to use.          |
+|                                                                        |
++------------------------------------------------------------------------+
+
+  Visual: Three-row table. Each row: question | who answers it | impact.
+          Clean grid, no extra decoration.
+
+  Speaker notes:
+    Don't let these block the whole conversation — but don't skip them.
+    Each one changes which tool path makes sense. Surface them early;
+    let the audience help answer them.
+
+
+
+
++------------------------------------------------------------------------+
+|  NEXT STEP                                                   [10 / 10] |
+|                                                                        |
+|  TWO CONVERSATIONS BEFORE ANY TOOL DECISION                           |
+|  ───────────────────────────────────────────                           |
+|                                                                        |
+|   1.  Find the internal pilot team.                                   |
+|       Get an intro. Learn what they've tested. Don't reinvent.        |
+|                                                                        |
+|   2.  Talk to one Early Careers PM.                                   |
+|       Validate the Gem pain point. Scope the pilot.                   |
+|                                                                        |
+|   If both conversations confirm the fit:                              |
+|   ──────────────────────────────────────────────────────────          |
+|   Run a 30-day Cowork pilot with the Early Careers BI workflow.       |
+|   No budget ask. No new tooling. Just a scoped test.                  |
+|                                                                        |
++------------------------------------------------------------------------+
+
+  Visual: Two-step action list with clear owner labels.
+          Final callout box: "30-day pilot / Early Careers BI."
+
+
+
+
+================================================================================
+  END OF DECK  |  10 slides  |  JPMC Recruiting BI + AI  |  April 2026
+================================================================================

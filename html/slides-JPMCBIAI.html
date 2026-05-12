@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Claude + Recruiting BI — Lunch & Learn</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Crimson+Pro:ital,wght@0,300;0,400;1,300&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+/* ─────────────────────────────────────────────
+   ABC DESIGN TOKENS
+   Queens       → Cormorant Garamond 300
+   Tiempos Fine → Crimson Pro 300
+   Open Sans 600
+───────────────────────────────────────────── */
+:root {
+  --accent:   #8F5A39;
+  --navy:     #27455C;
+  --blue:     #2670A9;
+  --cream:    #F4EFE7;
+  --ink:      #202020;
+  --white:    #FFFFFF;
+
+  --f-display: 'Cormorant Garamond', Georgia, serif;
+  --f-body:    'Crimson Pro', Georgia, serif;
+  --f-ui:      'Open Sans', system-ui, sans-serif;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  width: 100%; height: 100%;
+  overflow: hidden;
+  background: var(--navy);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Deck ── */
+#deck { position: fixed; inset: 0; }
+
+.slide {
+  position: absolute; inset: 0;
+  background: var(--cream);
+  display: flex; flex-direction: column;
+  opacity: 0; pointer-events: none;
+  transition: opacity 0.4s ease;
+}
+.slide.active { opacity: 1; pointer-events: all; }
+
+/* ── Progress bar ── */
+#prog {
+  position: fixed; top: 0; left: 0;
+  height: 2px; background: var(--accent);
+  transition: width 0.38s ease; z-index: 200;
+}
+
+/* ── Chrome strip ── */
+.chrome {
+  display: flex; align-items: center;
+  justify-content: space-between;
+  padding: 0 56px; height: 50px;
+  background: var(--navy); flex-shrink: 0;
+}
+.chrome-tag {
+  font-family: var(--f-ui); font-size: 10px;
+  font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase; color: var(--accent);
+}
+.chrome-num {
+  font-family: var(--f-ui); font-size: 10px;
+  font-weight: 600; letter-spacing: 0.10em;
+  color: rgba(255,255,255,0.35);
+}
+
+/* ── Body ── */
+.body {
+  flex: 1; display: flex; flex-direction: column;
+  justify-content: center;
+  padding: 56px 80px;
+  max-width: 1200px; width: 100%; margin: 0 auto;
+}
+
+/* ── Type ── */
+.eyebrow {
+  font-family: var(--f-ui); font-size: 10px;
+  font-weight: 600; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 14px;
+}
+h1, h2 {
+  font-family: var(--f-display); font-weight: 300;
+  color: var(--navy); line-height: 1.07;
+}
+h1 { font-size: clamp(44px, 5.6vw, 68px); }
+h2 { font-size: clamp(34px, 4.4vw, 52px); }
+
+.rule {
+  width: 40px; height: 1px;
+  background: var(--accent); margin: 22px 0;
+}
+p.body-text {
+  font-family: var(--f-body); font-weight: 300;
+  font-size: clamp(16px, 1.5vw, 20px);
+  color: var(--ink); line-height: 1.72;
+}
+.caption {
+  font-family: var(--f-ui); font-size: 10px;
+  font-weight: 600; letter-spacing: 0.07em;
+  color: rgba(32,32,32,0.38);
+}
+
+/* ── Two-col ── */
+.two-col {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 60px; align-items: start;
+}
+
+/* ── Bullets ── */
+ul.bl { list-style: none; display: flex; flex-direction: column; gap: 13px; }
+ul.bl li {
+  font-family: var(--f-body); font-weight: 300;
+  font-size: clamp(15px, 1.4vw, 19px);
+  color: var(--ink); line-height: 1.6;
+  padding-left: 18px; position: relative;
+}
+ul.bl li::before {
+  content: '·'; position: absolute; left: 0;
+  color: var(--accent); font-size: 22px; line-height: 1.3;
+}
+
+/* ── Sub-label ── */
+.lbl {
+  font-family: var(--f-ui); font-size: 10px;
+  font-weight: 600; letter-spacing: 0.11em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 12px; display: block;
+}
+
+/* ─────────────────────────────────────────────
+   SLIDE 1 — TITLE
+───────────────────────────────────────────── */
+.s1-body {
+  flex: 1; display: flex; flex-direction: column;
+  justify-content: space-between;
+  padding: 68px 80px 60px;
+  max-width: 1200px; width: 100%; margin: 0 auto;
+}
+.s1-tag {
+  display: inline-block;
+  font-family: var(--f-ui); font-size: 10px;
+  font-weight: 600; letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--white);
+  background: var(--accent);
+  padding: 5px 12px; margin-bottom: 28px;
+}
+.s1-title {
+  font-family: var(--f-display); font-weight: 300;
+  font-size: clamp(46px, 6vw, 72px);
+  color: var(--navy); line-height: 1.05;
+  max-width: 660px;
+}
+.s1-sub {
+  font-family: var(--f-body); font-weight: 300;
+  font-size: clamp(17px, 1.6vw, 22px);
+  color: rgba(32,32,32,0.55); margin-top: 20px;
+  max-width: 520px; line-height: 1.6;
+}
+.s1-date {
+  font-family: var(--f-ui); font-size: 10px;
+  font-weight: 600; letter-spacing: 0.12em;
+  text-transform: uppercase; color: rgba(32,32,32,0.28);
+}
+
+/* ─────────────────────────────────────────────
+   SLIDE 2 — WHERE CLAUDE ALREADY SITS
+   Pill row for presence signals
+───────────────────────────────────────────── */
+.pill-row {
+  display: flex; flex-wrap: wrap; gap: 10px;
+  margin-top: 6px;
+}
+.pill {
+  font-family: var(--f-ui); font-size: 11px;
+  font-weight: 600; letter-spacing: 0.07em;
+  text-transform: uppercase;
+  border: 1px solid var(--navy);
+  padding: 8px 16px; color: var(--navy);
+}
+.pill.filled {
+  background: var(--navy); color: rgba(255,255,255,0.88);
+}
+
+.insight-box {
+  border-left: 3px solid var(--accent);
+  padding: 16px 22px;
+  background: rgba(143,90,57,0.05);
+  margin-top: 28px;
+}
+.insight-box p {
+  font-family: var(--f-display); font-weight: 300;
+  font-size: clamp(19px, 2.2vw, 26px);
+  color: var(--navy); line-height: 1.38; font-style: italic;
+}
+.insight-box span {
+  display: block; margin-top: 8px;
+  font-family: var(--f-ui); font-size: 10px;
+  font-weight: 600; letter-spacing: 0.09em;
+  text-transform: uppercase; color: rgba(32,32,32,0.38);
+}
+
+/* ─────────────────────────────────────────────
+   SLIDE 3 — HOW THE STACK FITS TOGETHER
+   Three-zone diagram
+───────────────────────────────────────────── */
+.stack-zones {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 2px; margin-top: 8px;
+}
+.zone {
+  background: var(--white);
+  border: 1px solid rgba(39,69,92,0.18);
+  padding: 24px 20px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.zone.hero {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+.zone-tool {
+  font-family: var(--f-ui); font-size: 11px;
+  font-weight: 600; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--navy);
+}
+.zone.hero .zone-tool { color: rgba(255,255,255,0.9); }
+
+.zone-role {
+  font-family: var(--f-body); font-weight: 300;
+  font-size: clamp(14px, 1.3vw, 17px);
+  color: var(--ink); line-height: 1.55;
+}
+.zone.hero .zone-role { color: rgba(255,255,255,0.72); }
+
+.zone-badge {
+  margin-top: auto;
+  font-family: var(--f-ui); font-size: 9px;
+  font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: rgba(143,90,57,0.09);
+  padding: 3px 8px; display: inline-block; align-self: flex-start;
+}
+.zone.hero .zone-badge {
+  color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.1);
+}
+
+.zone-arrow-row {
+  display: flex; align-items: center;
+  justify-content: center; gap: 2px;
+  margin: 4px 0;
+}
+.zone-arrow {
+  display: flex; align-items: center; justify-content: center;
+  color: rgba(39,69,92,0.3);
+}
+
+.genie-note {
+  grid-column: 1; /* sits under Databricks zone */
+  margin-top: 10px;
+  font-family: var(--f-body); font-weight: 300;
+  font-size: 14px; color: rgba(32,32,32,0.5);
+  line-height: 1.55; font-style: italic;
+  padding-left: 2px;
+}
+
+/* ─────────────────────────────────────────────
+   SLIDE 4 — THE HANDOFF: GENIE → CLAUDE
+───────────────────────────────────────────── */
+.handoff {
+  display: flex; align-items: stretch;
+  gap: 0; margin-top: 8px;
+}
+.hf-block {
+  flex: 1; padding: 22px 20px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.hf-block.left  {
+  background: var(--white);
+  border: 1px solid rgba(39,69,92,0.18);
+}
+.hf-block.right {
+  background: var(--navy);
+  border: 1px solid var(--navy);
+}
+.hf-tool {
+  font-family: var(--f-ui); font-size: 11px;
+  font-weight: 600; letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.hf-block.left  .hf-tool { color: var(--navy); }
+.hf-block.right .hf-tool { color: rgba(255,255,255,0.88); }
+
+.hf-desc {
+  font-family: var(--f-body); font-weight: 300;
+  font-size: clamp(14px, 1.3vw, 17px); line-height: 1.6;
+}
+.hf-block.left  .hf-desc { color: var(--ink); }
+.hf-block.right .hf-desc { color: rgba(255,255,255,0.68); }
+
+.hf-user {
+  margin-top: auto;
+  font-family: var(--f-ui); font-size: 10px;
+  font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.hf-block.left  .hf-user { color: rgba(39,69,92,0.45); }
+.hf-block.right .hf-user { color: var(--accent); }
+
+.hf-sep {
+  width: 56px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--cream);
+}
+.hf-sep svg { width: 24px; height: 24px; }
+
+.not-competing {
+  margin-top: 24px;
+  padding: 16px 20px;
+  border: 1px solid rgba(143,90,57,0.3);
+  background: rgba(143,90,57,0.04);
+}
+.not-competing p {
+  font-family: var(--f-body); font-weight: 300;
+  font-size: clamp(14px, 1.3vw, 17px);
+  color: var(--ink); line-height: 1.6;
+}
+.not-competing p em { font-style: normal; color: var(--navy); }
+
+/* ─────────────────────────────────────────────
+   SLIDE 5 — RECRUITING BI USE CASES
+───────────────────────────────────────────── */
+.use-cases {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px; margin-top: 6px;
+}
+.uc {
+  background: var(--white);
+  border: 1px solid rgba(39,69,92,0.14);
+  padding: 12px 16px;
+}
+.uc-head {
+  font-family: var(--f-ui); font-size: 10px;
+  font-weight: 600; letter-spacing: 0.09em;
+  text-transform: uppercase; color: var(--accent);
+  margin-bottom: 5px; display: block;
+}
+.uc-text {
+  font-family: var(--f-body); font-weight: 300;
+  font-size: clamp(13px, 1.1vw, 15px);
+  color: var(--ink); line-height: 1.5;
+}
+.uc-tag {
+  margin-top: 6px;
+  font-family: var(--f-ui); font-size: 9px;
+  font-weight: 600; letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: rgba(32,32,32,0.35);
+  display: block;
+}
+
+/* ─────────────────────────────────────────────
+   NAVIGATION
+───────────────────────────────────────────── */
+#nav {
+  position: fixed; bottom: 28px; right: 48px;
+  display: flex; gap: 8px; z-index: 200;
+}
+.nbtn {
+  width: 36px; height: 36px;
+  border: 1px solid var(--navy); border-radius: 2px;
+  background: transparent; cursor: pointer;
+  display: flex; align-items: center; justify-content: center;
+  color: var(--navy); transition: background 0.16s, color 0.16s;
+}
+.nbtn:hover { background: var(--navy); color: var(--cream); }
+.nbtn svg { width: 13px; height: 13px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+#hint {
+  position: fixed; bottom: 34px; left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--f-ui); font-size: 10px;
+  font-weight: 600; letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(39,69,92,0.28); z-index: 150;
+  transition: opacity 0.8s ease; pointer-events: none;
+  white-space: nowrap;
+}
+#hint.gone { opacity: 0; }
+</style>
+</head>
+<body>
+
+<div id="prog"></div>
+
+<div id="deck">
+
+  <!-- ══════════════════════════════════════════
+       01 · TITLE
+  ══════════════════════════════════════════ -->
+  <section class="slide active">
+    <div class="chrome">
+      <span class="chrome-tag">Recruiting BI · Lunch &amp; Learn</span>
+      <span class="chrome-num">01 / 05</span>
+    </div>
+    <div class="s1-body">
+      <div>
+        <span class="s1-tag">Lunch &amp; Learn</span>
+        <h1 class="s1-title">What Claude Can Do<br>for Recruiting BI</h1>
+        <p class="s1-sub">
+          A quick look at where AI tools fit in our BI stack — and what becomes possible when Databricks and Sigma get a natural language layer.
+        </p>
+      </div>
+      <span class="s1-date">JPMC Recruiting</span>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       02 · CLAUDE IS ALREADY IN THE BUILDING
+  ══════════════════════════════════════════ -->
+  <section class="slide">
+    <div class="chrome">
+      <span class="chrome-tag">Context</span>
+      <span class="chrome-num">02 / 05</span>
+    </div>
+    <div class="body">
+      <p class="eyebrow">Where things stand</p>
+      <h2>Claude Is Already<br>in the Building</h2>
+      <div class="rule"></div>
+
+      <div class="two-col" style="gap:52px; align-items:start;">
+        <div>
+          <p class="body-text" style="margin-bottom:20px;">
+            JPMC has been deploying Claude across the organization. This isn't a future bet — the infrastructure is live.
+          </p>
+          <span class="lbl">Active today</span>
+          <div class="pill-row">
+            <span class="pill filled">LLM Suite</span>
+            <span class="pill filled">Internal Pilot</span>
+            <span class="pill filled">Cowork (Wave 3)</span>
+            <span class="pill">Claude Code</span>
+          </div>
+        </div>
+        <div>
+          <div class="insight-box">
+            <p>"92% of CHROs expect AI to reshape recruiting workflows within 2 years."</p>
+            <span>— SHRM, 2025</span>
+          </div>
+          <p class="body-text" style="margin-top:20px; font-size:clamp(14px,1.3vw,17px); color:rgba(32,32,32,0.65);">
+            The question for our team isn't whether to engage with these tools — it's knowing specifically where they add value for Recruiting BI.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       03 · HOW THE STACK FITS TOGETHER
+  ══════════════════════════════════════════ -->
+  <section class="slide">
+    <div class="chrome">
+      <span class="chrome-tag">The Stack</span>
+      <span class="chrome-num">03 / 05</span>
+    </div>
+    <div class="body">
+      <p class="eyebrow">Our environment</p>
+      <h2>Three Layers,<br>Three Roles</h2>
+      <div class="rule"></div>
+
+      <div class="stack-zones">
+        <div class="zone">
+          <span class="zone-tool">Databricks</span>
+          <p class="zone-role">The data lakehouse. Pipelines, modeled data, cohort outputs. Genie provides in-platform natural language querying for analysts who have access.</p>
+          <span class="zone-badge">Governed · In platform</span>
+        </div>
+        <div class="zone">
+          <span class="zone-tool">Sigma</span>
+          <p class="zone-role">Structured, governed reporting. Dashboards and defined metrics for stakeholders who need consistent views of recruiting data.</p>
+          <span class="zone-badge">Governed · Reporting layer</span>
+        </div>
+        <div class="zone hero">
+          <span class="zone-tool">Claude</span>
+          <p class="zone-role">Natural language layer that sits across both. Pulls from Databricks or Sigma, formats outputs, and delivers them to people who don't have platform access.</p>
+          <span class="zone-badge">Ad-hoc · Last mile</span>
+        </div>
+      </div>
+
+      <p class="body-text" style="margin-top:20px; font-size:clamp(13px,1.2vw,16px); color:rgba(32,32,32,0.55); font-style:italic;">
+        Databricks and Sigma handle what analysts see. Claude handles what everyone else receives.
+      </p>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       04 · THE GENIE HANDOFF
+  ══════════════════════════════════════════ -->
+  <section class="slide">
+    <div class="chrome">
+      <span class="chrome-tag">Capability</span>
+      <span class="chrome-num">04 / 05</span>
+    </div>
+    <div class="body">
+      <p class="eyebrow">How they work together</p>
+      <h2>Genie Gets the Data.<br>Claude Delivers It.</h2>
+      <div class="rule"></div>
+
+      <div class="handoff">
+        <div class="hf-block left">
+          <span class="hf-tool">Databricks Genie</span>
+          <p class="hf-desc">
+            In-platform natural language querying. An analyst asks a question, Genie queries the lakehouse, returns a result — all inside Databricks.
+          </p>
+          <span class="hf-user">For: analysts with Databricks access</span>
+        </div>
+        <div class="hf-sep">
+          <svg viewBox="0 0 24 24" fill="none" stroke="rgba(39,69,92,0.3)" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M5 12h14M13 6l6 6-6 6"/>
+          </svg>
+        </div>
+        <div class="hf-block right">
+          <span class="hf-tool">Claude / Cowork</span>
+          <p class="hf-desc">
+            Takes that data (or queries Databricks directly via MCP) and packages it as a formatted report, email, or summary — for anyone who doesn't touch Databricks.
+          </p>
+          <span class="hf-user">For: hiring managers, recruiters, leadership</span>
+        </div>
+      </div>
+
+      <div class="not-competing">
+        <p>These tools aren't competing. Genie deepens what <em>analysts</em> can do inside the platform. Claude extends what the <em>data</em> can reach — to stakeholders who need the insight but not the interface.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════════════════
+       05 · RECRUITING BI USE CASES
+  ══════════════════════════════════════════ -->
+  <section class="slide">
+    <div class="chrome">
+      <span class="chrome-tag">Use Cases</span>
+      <span class="chrome-num">05 / 05</span>
+    </div>
+    <div class="body" style="padding-top:32px; padding-bottom:32px;">
+      <p class="eyebrow">What this looks like for us</p>
+      <h2 style="font-size:clamp(28px,3.4vw,42px);">Where It Fits in Recruiting BI</h2>
+      <div class="rule" style="margin:14px 0;"></div>
+
+      <div class="use-cases">
+        <div class="uc">
+          <span class="uc-head">Early Careers Cohort Reports</span>
+          <p class="uc-text">High-volume, repeatable cohort data pulled from Databricks — formatted and delivered to program managers who don't have platform access.</p>
+          <span class="uc-tag">High volume · Structured data · Repeatable</span>
+        </div>
+        <div class="uc">
+          <span class="uc-head">Ad-Hoc Pipeline Summaries</span>
+          <p class="uc-text">A recruiter or hiring manager asks a one-off question about their pipeline. Claude queries Sigma or Databricks and returns a plain-language answer or formatted summary.</p>
+          <span class="uc-tag">No SQL · No Databricks access needed</span>
+        </div>
+        <div class="uc">
+          <span class="uc-head">Stakeholder Briefings</span>
+          <p class="uc-text">Weekly or event-driven recruiting snapshots — drafted, formatted, and ready to send. Pulls from live data rather than manually assembled.</p>
+          <span class="uc-tag">Replaces manual ticket work</span>
+        </div>
+        <div class="uc">
+          <span class="uc-head">Cross-Tool Workflows</span>
+          <p class="uc-text">Claude connects Databricks, Sigma, Gmail, Slack, and Calendar in one workflow. Data pulled, formatted, and delivered — without toggling between platforms.</p>
+          <span class="uc-tag">Multi-system · No code</span>
+        </div>
+        <div class="uc" style="grid-column: 1 / -1; border-top: 2px solid var(--accent);">
+          <span class="uc-head">Quarterly Business Reviews</span>
+          <p class="uc-text">Pulling updated recruiting figures ahead of QBRs for senior HR and recruiting leadership. Claude queries the latest metrics from Databricks or Sigma and assembles a clean briefing — faster than the manual process.</p>
+          <span class="uc-tag">High visibility · Leadership-facing · Repeatable each quarter</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</div><!-- /#deck -->
+
+<div id="nav">
+  <button class="nbtn" id="prev" title="Previous (←)">
+    <svg viewBox="0 0 14 14"><path d="M9 2L4 7l5 5"/></svg>
+  </button>
+  <button class="nbtn" id="next" title="Next (→)">
+    <svg viewBox="0 0 14 14"><path d="M5 2l5 5-5 5"/></svg>
+  </button>
+</div>
+
+<div id="hint">← → to navigate</div>
+
+<script>
+(function () {
+  const slides = Array.from(document.querySelectorAll('.slide'));
+  const prog   = document.getElementById('prog');
+  const hint   = document.getElementById('hint');
+  const btnP   = document.getElementById('prev');
+  const btnN   = document.getElementById('next');
+  const total  = slides.length;
+  let cur = 0, hinted = false;
+
+  function go(n) {
+    if (n < 0 || n >= total) return;
+    slides[cur].classList.remove('active');
+    cur = n;
+    slides[cur].classList.add('active');
+    prog.style.width = ((cur + 1) / total * 100) + '%';
+    if (!hinted) { hinted = true; hint.classList.add('gone'); }
+  }
+
+  btnP.addEventListener('click', () => go(cur - 1));
+  btnN.addEventListener('click', () => go(cur + 1));
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown' || e.key === ' ') { e.preventDefault(); go(cur + 1); }
+    else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); go(cur - 1); }
+  });
+
+  let tx = 0;
+  document.addEventListener('touchstart', e => { tx = e.touches[0].clientX; }, { passive: true });
+  document.addEventListener('touchend',   e => {
+    const dx = e.changedTouches[0].clientX - tx;
+    if (Math.abs(dx) > 48) dx < 0 ? go(cur + 1) : go(cur - 1);
+  });
+
+  prog.style.width = (1 / total * 100) + '%';
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,201 @@
+University,State,City,Admission Rate (%),Average SAT,Student Size,In-State Tuition ($),Out-of-State Tuition ($),Median Earnings 10yr ($),Completion Rate (%),Median Debt ($),Nobel Prizes,March Madness 2026
+Stanford University,CA,Stanford,3.6,1553,7554,65910,65910,124080,92.4,12000,22,No
+Harvard University,MA,Cambridge,3.6,1553,7601,61676,61676,101817,97.5,14000,29,No
+Yale University,CT,New Haven,3.9,1534,6758,67250,67250,100533,96.0,12975,9,No
+Columbia University in the City of New York,NY,New York,4.0,1553,8973,71845,71845,102491,95.5,21500,18,No
+University of Chicago,IL,Chicago,4.5,1554,7569,70662,70662,91885,95.4,15000,20,No
+Princeton University,NJ,Princeton,4.6,1553,5709,62688,62688,110066,97.4,10320,18,No
+Northeastern University,MA,Boston,5.2,1497,17326,66162,66162,92538,90.5,24250,0,No
+Brown University,RI,Providence,5.4,1546,7226,71412,71412,93487,95.7,11428,3,No
+University of Pennsylvania,PA,Philadelphia,5.4,1553,10650,68686,68686,111371,96.7,15715,5,Yes
+Duke University,NC,Durham,5.7,1548,6442,68758,68758,97800,96.3,13000,0,Yes
+Vanderbilt University,TN,Nashville,5.9,1549,7208,67498,67498,91565,93.1,14000,1,Yes
+Johns Hopkins University,MD,Baltimore,6.4,1553,5693,65230,65230,87555,94.2,10250,2,No
+Northwestern University,IL,Evanston,7.7,1533,9201,68322,68322,89363,95.5,15000,4,No
+Cornell University,NY,Ithaca,8.8,1535,15995,69314,69314,104043,95.3,14000,8,No
+University of California-Los Angeles,CA,Los Angeles,9.0,,33475,15203,49403,82511,92.6,14000,43,Yes
+New York University,NY,New York,9.2,1520,28663,62796,62796,82509,88.0,20500,2,No
+University of Southern California,CA,Los Angeles,9.8,1495,20443,72097,72097,92498,91.9,18000,2,No
+Emory University,GA,Atlanta,10.7,1520,7298,64280,64280,80137,91.4,18250,0,No
+University of California-Berkeley,CA,Berkeley,11.0,,33068,16347,50547,92446,92.9,13000,43,Yes
+Boston University,MA,Boston,11.1,1480,18248,68102,68102,83238,89.3,23250,0,No
+University of Notre Dame,IN,Notre Dame,11.3,1520,8818,65025,65025,99980,96.0,19000,0,No
+Tufts University,MA,Medford,11.5,1513,7061,70704,70704,83214,93.4,16250,1,No
+Carnegie Mellon University,PA,Pittsburgh,11.7,1546,7304,66246,66246,114862,93.3,21750,2,No
+Washington University in St Louis,MO,St. Louis,12.1,1530,7857,65790,65790,86182,94.3,17500,5,No
+Georgetown University,DC,Washington,12.9,1487,7569,68017,68017,103494,94.5,15500,0,No
+Tulane University of Louisiana,LA,New Orleans,14.0,1448,7767,68678,68678,63268,87.5,20500,0,No
+Georgia Institute of Technology-Main Campus,GA,Atlanta,14.1,1480,18785,12058,34484,102772,93.2,21672,0,No
+University of North Carolina at Chapel Hill,NC,Chapel Hill,15.3,1439,20752,8994,41203,72200,91.6,14000,2,Yes
+University of Michigan-Ann Arbor,MI,Ann Arbor,15.6,1465,34177,17736,60946,83648,93.2,19500,1,Yes
+Boston College,MA,Chestnut Hill,16.4,1507,10085,70702,70702,103937,90.9,19000,0,No
+University of Virginia-Main Campus,VA,Charlottesville,16.8,1480,17597,21803,59512,86863,95.5,17500,0,Yes
+University of Miami,FL,Coral Gables,18.9,1415,12913,62616,62616,75328,84.0,17500,0,Yes
+Florida Agricultural and Mechanical University,FL,Tallahassee,20.6,1107,7582,5785,17725,44349,52.6,23548,0,No
+Wake Forest University,NC,Winston-Salem,21.7,1475,5485,67642,67642,78158,90.0,21500,0,No
+University of Florida,FL,Gainesville,24.2,1403,35629,6381,28659,71588,91.3,15000,0,Yes
+Florida State University,FL,Tallahassee,24.2,1361,32212,5656,18786,61675,84.3,18000,0,No
+Lehigh University,PA,Bethlehem,25.9,1440,5898,64980,64980,105584,88.5,21960,0,Yes
+The University of Texas at Austin,TX,Austin,26.6,1395,42855,11688,44908,75121,88.3,20500,0,Yes
+University of California-San Diego,CA,La Jolla,26.7,,34948,16758,50958,84943,86.8,15500,43,Yes
+Villanova University,PA,Villanova,27.0,1460,6938,67776,67776,100423,92.1,25874,0,Yes
+University of California-Irvine,CA,Irvine,28.6,,30197,15722,49922,80735,86.4,15000,43,Yes
+California Polytechnic State University-San Luis Obispo,CA,San Luis Obispo,31.3,,21996,13596,34665,90768,85.7,18500,0,No
+University of California-Santa Barbara,CA,Santa Barbara,33.0,,23113,16414,50614,74915,84.2,13993,43,Yes
+Fairfield University,CT,Fairfield,33.3,1335,5373,58350,58350,88794,84.1,26000,0,No
+William & Mary,VA,Williamsburg,34.1,1473,7055,25914,51038,73490,90.2,18500,0,No
+Southern University and A & M College,LA,Baton Rouge,35.1,942,5519,9922,17272,43371,27.7,29251,0,No
+San Diego State University,CA,San Diego,36.2,,35377,8728,21328,64909,77.3,15000,0,No
+Case Western Reserve University,OH,Cleveland,36.5,1513,6437,66608,66608,87989,87.1,24000,0,No
+University of Georgia,GA,Athens,37.7,1397,32137,11450,31688,68726,88.9,18500,0,Yes
+Clemson University,SC,Clemson,38.3,1353,23300,15554,40866,71513,87.2,21500,0,Yes
+Binghamton University,NY,Vestal,38.6,1415,14655,10567,30447,80596,82.6,18500,0,No
+University of Washington-Seattle Campus,WA,Seattle,39.1,,31942,12973,43209,78466,84.5,14615,0,No
+University of Rochester,NY,Rochester,40.1,1488,6331,67080,67080,79042,85.0,21000,1,No
+University of Central Florida,FL,Orlando,40.1,1269,59146,6368,22467,58308,76.6,18190,0,Yes
+The University of Tampa,FL,Tampa,40.3,,10572,34408,34408,59436,62.8,24211,0,No
+Howard University,DC,Washington,41.3,1213,10108,35810,35810,63066,69.3,24500,0,Yes
+The University of Tennessee-Knoxville,TN,Knoxville,41.6,1311,30418,13812,33256,60249,73.7,20500,0,Yes
+North Carolina State University at Raleigh,NC,Raleigh,41.7,1376,27371,8799,32847,68758,84.7,20121,0,Yes
+University of California-Davis,CA,Davis,41.8,,32253,16774,50974,80838,85.4,13000,43,Yes
+University of Illinois Urbana-Champaign,IL,Champaign,42.4,1440,36258,16004,35124,81054,85.0,19500,4,Yes
+University of South Florida,FL,Tampa,43.2,1227,37207,6410,17324,57743,75.7,17988,0,Yes
+Berklee College of Music,MA,Boston,43.5,,7468,52040,52040,33647,66.8,25000,0,No
+Texas A & M International University,TX,Laredo,44.4,993,6667,7894,19454,48386,47.6,15000,0,No
+Texas Christian University,TX,Fort Worth,44.5,1298,11026,61740,61740,68424,85.6,21500,0,Yes
+University of Maryland-College Park,MD,College Park,44.8,1473,30760,11809,41186,82860,88.6,19000,0,No
+Loyola Marymount University,CA,Los Angeles,45.1,1359,7094,62357,62357,78349,79.3,19500,0,No
+University of Wisconsin-Madison,WI,Madison,45.2,1427,36902,11603,42103,73792,89.4,20484,3,Yes
+Auburn University,AL,Auburn,45.9,1345,26816,12890,34922,65337,80.6,21000,0,No
+Syracuse University,NY,Syracuse,45.9,1375,15477,65528,65528,79164,82.5,26000,0,No
+California State University-Long Beach,CA,Long Beach,46.3,,35924,7350,19950,64403,69.3,14289,0,No
+George Washington University,DC,Washington,47.1,1433,11182,67710,67710,90873,84.5,20449,0,No
+CUNY Bernard M Baruch College,NY,New York,47.5,1280,16154,7464,15414,75971,72.1,11512,0,No
+Santa Clara University,CA,Santa Clara,48.0,1426,6552,61293,61293,109183,88.2,19162,0,Yes
+Stony Brook University,NY,Stony Brook,49.0,1419,18101,10931,32741,74502,76.7,18228,0,No
+Purdue University-Main Campus,IN,West Lafayette,49.9,1364,44503,9992,28794,72424,83.1,19500,2,Yes
+North Carolina A & T State University,NC,Greensboro,49.9,1074,12182,6813,20673,44440,56.2,27000,0,No
+Baylor University,TX,Waco,51.3,1329,14785,58100,58100,65793,80.1,23000,0,No
+University of West Georgia,GA,Carrollton,51.6,1032,7520,6088,17800,49587,43.1,23970,0,No
+University of San Diego,CA,San Diego,52.4,,5671,59486,59486,86522,82.7,22940,0,No
+University of Connecticut,CT,Storrs,52.4,1348,19835,21044,43712,73997,83.5,21500,0,Yes
+University of North Florida,FL,Jacksonville,53.2,1153,13359,6389,20793,56343,68.7,15531,0,No
+CUNY Hunter College,NY,New York,53.8,1280,16289,7382,15332,63163,58.8,11000,0,No
+University of Puerto Rico-Rio Piedras,PR,San Juan,54.6,,8572,5354,5354,35723,51.4,5500,0,No
+Florida International University,FL,Miami,54.7,1163,39508,6565,18964,60249,74.2,16500,0,No
+Virginia Polytechnic Institute and State University,VA,Blacksburg,54.8,1364,30923,15948,37764,81698,86.2,21500,0,No
+Georgia State University,GA,Atlanta,55.4,1076,26623,8664,24840,47384,53.4,20903,0,No
+University of Michigan-Dearborn,MI,Dearborn,55.6,1115,5952,15640,32896,59649,57.3,22500,0,Yes
+Marist University,NY,Poughkeepsie,56.5,1295,5182,47750,47750,77819,79.7,25000,0,No
+University of Puerto Rico-Mayaguez,PR,Mayaguez,56.5,,9539,5274,5274,48992,48.0,8250,0,No
+CUNY Lehman College,NY,Bronx,56.6,970,10696,7410,15360,58013,50.3,10950,0,No
+CUNY John Jay College of Criminal Justice,NY,New York,57.1,1080,11590,7470,15420,56195,55.7,11000,0,No
+Texas A&M University-College Station,TX,College Station,57.4,1280,59615,13154,40124,72097,83.9,17804,0,No
+Embry-Riddle Aeronautical University-Worldwide,FL,Daytona Beach,57.9,1148,9139,12097,12097,84131,21.1,23666,0,No
+Alabama A & M University,AL,Normal,58.0,938,6124,10024,18634,40628,26.3,31000,0,No
+University of Pittsburgh-Pittsburgh Campus,PA,Pittsburgh,58.1,1370,20370,21926,41430,66125,84.9,24250,0,No
+Rutgers University-New Brunswick,NJ,New Brunswick,58.1,1410,37751,17929,37441,74479,84.3,21500,1,No
+University of West Florida,FL,Pensacola,58.2,1138,9330,6360,19241,49137,60.3,16624,0,No
+CUNY Brooklyn College,NY,Brooklyn,58.4,1140,10543,7452,15402,60752,55.2,11000,0,No
+Fordham University,NY,Bronx,59.3,1418,10512,64915,64915,85569,81.1,24300,0,No
+University of Akron Main Campus,OH,Akron,59.7,1081,9052,13135,20815,46600,49.8,23250,0,Yes
+University of Massachusetts-Amherst,MA,Amherst,59.7,1423,23671,17772,40449,71631,83.2,22763,0,No
+State University of New York at Cortland,NY,Cortland,59.8,,5901,8874,18784,60236,68.1,21500,0,No
+CUNY City College,NY,New York,60.0,1260,12505,7340,15290,66039,55.8,11990,0,No
+College of Charleston,SC,Charleston,60.0,1247,10558,12978,38296,56416,65.4,23250,0,No
+University of South Carolina-Columbia,SC,Columbia,60.2,1297,29820,12688,35972,62177,78.3,21500,0,No
+Worcester Polytechnic Institute,MA,Worcester,60.2,,5447,60965,60965,103470,89.1,27000,0,No
+Fashion Institute of Technology,NY,New York,60.2,,7637,6294,16874,62696,82.0,12000,0,No
+Pennsylvania State University-Main Campus,PA,University Park,60.6,1337,42284,20644,41790,63435,85.9,25000,0,No
+Ohio State University-Main Campus,OH,Columbus,60.6,1387,45638,13244,40022,60409,87.7,19976,0,Yes
+Colorado School of Mines,CO,Golden,60.7,1412,6155,21914,45824,97335,80.9,23000,0,No
+State University of New York at New Paltz,NY,New Paltz,61.6,1265,6086,8572,18822,58073,70.3,18750,0,No
+University of San Francisco,CA,San Francisco,61.7,1295,5287,60492,60492,89812,70.6,23000,0,No
+American University,DC,Washington,62.0,1381,7266,58771,58771,77370,77.0,22750,0,No
+The College of New Jersey,NJ,Ewing,62.3,1246,7105,19632,25752,73323,85.5,23250,0,No
+University of Missouri-St Louis,MO,Saint Louis,62.7,1199,5024,14112,35112,53037,56.8,20000,0,Yes
+Farmingdale State College,NY,Farmingdale,63.3,1147,9552,8626,18536,69781,54.9,14718,0,No
+Southern Methodist University,TX,Dallas,63.3,1428,7277,67040,67040,78354,83.8,19500,0,Yes
+Florida Gulf Coast University,FL,Fort Myers,63.4,1114,13874,6118,25162,54560,56.7,17622,0,No
+The New School,NY,New York,63.5,,6563,58694,58694,52901,70.2,22266,0,No
+Rensselaer Polytechnic Institute,NY,Troy,63.5,1456,5714,64081,64081,102051,83.4,23750,0,No
+University of Central Missouri,MO,Warrensburg,63.8,1050,5648,10050,18600,49560,51.6,21000,0,No
+University of North Carolina Wilmington,NC,Wilmington,64.2,1287,14922,7277,24152,54967,70.7,19500,0,No
+CUNY Queens College,NY,Queens,64.3,1120,12550,7538,15488,62763,56.4,10298,0,No
+Embry-Riddle Aeronautical University-Daytona Beach,FL,Daytona Beach,64.8,1257,7860,44249,44249,84131,67.0,23666,0,No
+New Jersey Institute of Technology,NJ,Newark,65.1,1337,9019,19974,37664,84276,72.9,21000,0,No
+The University of Texas at Dallas,TX,Richardson,65.1,1286,21751,14644,40144,68227,75.3,18000,0,No
+University of Vermont,VT,Burlington,65.3,1374,11743,19058,45502,62472,78.6,20951,0,No
+Sacred Heart University,CT,Fairfield,65.4,,7087,50404,50404,75059,74.0,25000,0,No
+Chapman University,CA,Orange,65.4,1357,7478,64984,64984,70070,81.1,20500,0,No
+University of Dayton,OH,Dayton,65.5,1335,7682,49140,49140,75537,80.9,23250,0,No
+University of California-Santa Cruz,CA,Santa Cruz,65.8,,17940,16005,50205,68396,74.8,16666,43,Yes
+Adelphi University,NY,Garden City,65.9,1219,5276,49110,49110,75482,68.0,25000,0,No
+Florida Atlantic University,FL,Boca Raton,66.1,1127,23757,4879,17324,56746,63.4,17236,0,No
+Elon University,NC,Elon,66.3,1208,6452,46958,46958,74545,83.5,20500,0,No
+Arizona State University Digital Immersion,AZ,Scottsdale,66.7,,53782,,,62668,28.5,19500,0,No
+Rochester Institute of Technology,NY,Rochester,66.9,1383,13215,59274,59274,76571,70.3,26778,0,No
+Monroe University,NY,Bronx,67.5,,5701,18464,18464,41236,57.0,18818,0,No
+Northern Kentucky University,KY,Highland Heights,67.7,1087,8246,11088,21912,50220,50.2,23000,0,No
+Brigham Young University,UT,Provo,67.8,1376,32952,6688,6688,75790,81.6,11069,0,Yes
+University of North Georgia,GA,Dahlonega,67.9,1106,16146,5285,16503,50135,37.1,17750,0,No
+Hofstra University,NY,Hempstead,68.1,1319,6488,57660,57660,69039,67.8,23621,0,Yes
+University of Alabama in Huntsville,AL,Huntsville,68.6,1319,6591,12132,26408,61767,63.1,20705,0,No
+Middle Tennessee State University,TN,Murfreesboro,69.1,1121,16301,10266,31574,48541,53.8,20000,0,No
+University at Albany,NY,Albany,69.1,,12564,10866,31256,67979,62.7,19500,0,No
+Kennesaw State University,GA,Kennesaw,69.2,1113,41254,5808,17736,57552,50.0,23833,0,Yes
+Northern Illinois University,IL,Dekalb,69.8,,11301,13248,13248,57808,49.2,22162,0,No
+University of Delaware,DE,Newark,70.6,1292,19071,16810,41400,72950,79.7,24572,1,No
+SUNY Brockport,NY,Brockport,70.7,1193,5784,8752,15822,54496,55.9,20000,0,No
+University of South Alabama,AL,Mobile,71.0,1147,8879,10116,19092,49379,52.6,24929,0,No
+Rutgers University-Newark,NJ,Newark,71.4,,7709,17250,36762,74479,65.7,21500,0,No
+Slippery Rock University of Pennsylvania,PA,Slippery Rock,71.5,1095,6788,10568,14676,53032,65.7,25000,0,No
+James Madison University,VA,Harrisonburg,71.5,1256,20888,14250,31604,69954,80.3,20093,0,No
+University of Memphis,TN,Memphis,72.0,1088,12701,10728,15384,48458,50.1,23300,0,No
+Saginaw Valley State University,MI,University Center,72.1,1052,5989,12930,30450,51955,50.7,25000,0,No
+Quinnipiac University,CT,Hamden,72.2,1242,6531,55480,55480,83759,76.5,26000,0,No
+University of Rhode Island,RI,Kingston,72.2,1160,13381,16942,37146,69743,72.2,22250,0,No
+University of Missouri-Kansas City,MO,Kansas City,72.2,1204,6817,12587,30227,59637,55.7,18750,0,Yes
+University of North Texas,TX,Denton,72.2,1109,34341,11309,21149,57010,60.1,19250,0,No
+Valdosta State University,GA,Valdosta,72.3,1013,6622,6124,17836,49361,42.0,24779,0,No
+Purdue University Northwest,IN,Hammond,72.4,1024,5671,8675,16094,48318,43.5,21229,0,No
+Bowie State University,MD,Bowie,72.4,,5043,9218,19938,54537,38.2,22985,0,No
+University of Maryland-Baltimore County,MD,Baltimore,72.4,1323,10701,13256,31275,69960,70.3,19500,0,No
+Missouri University of Science and Technology,MO,Rolla,72.5,1317,5521,14984,33248,82957,64.0,23250,0,No
+Texas Tech University,TX,Lubbock,72.7,1190,32394,11852,24451,62454,68.1,21500,0,Yes
+SUNY Buffalo State University,NY,Buffalo,73.0,1070,5097,8533,19653,52334,34.7,21028,0,No
+Nova Southeastern University,FL,Fort Lauderdale,73.2,1157,7240,38700,38700,59209,63.8,24250,0,No
+Seton Hall University,NJ,South Orange,73.3,1322,6036,53170,53170,70196,70.5,22750,0,No
+Louisiana State University and Agricultural & Mechanical College,LA,Baton Rouge,73.3,1285,30594,11954,28631,61251,69.8,20500,0,No
+Central Connecticut State University,CT,New Britain,73.3,1080,7822,13050,16550,58562,48.9,22300,0,No
+Southeast Missouri State University,MO,Cape Girardeau,73.5,950,6373,9903,9903,44030,56.7,21500,0,No
+University of Nevada-Reno,NV,Reno,73.7,1132,15599,9578,27720,60614,61.8,18922,0,No
+University of Houston,TX,Houston,73.9,1250,38380,9717,22547,62377,64.7,18194,0,Yes
+University at Buffalo,NY,Buffalo,74.2,1295,20112,10936,31536,70814,74.3,19000,0,No
+University of Arkansas,AR,Fayetteville,74.3,1169,28677,10104,29966,58191,70.2,21500,0,Yes
+ECPI University,VA,Virginia Beach,74.5,,12090,18484,18484,42837,43.5,20000,0,No
+University of Colorado Denver/Anschutz Medical Campus,CO,Denver,74.7,1116,10519,10383,29391,64270,46.7,20500,0,No
+Oklahoma State University-Main Campus,OK,Stillwater,75.0,1150,21773,10234,25754,57413,67.0,20500,0,No
+Saint Louis University,MO,Saint Louis,75.0,1317,7267,55760,55760,70783,79.7,25000,1,Yes
+California State Polytechnic University-Pomona,CA,Pomona,75.2,,25042,7780,20380,71902,67.6,16000,0,No
+Coastal Carolina University,SC,Conway,75.3,1143,10377,11640,29628,47258,49.7,23750,0,No
+High Point University,NC,High Point,75.3,1288,5129,45312,45312,61389,72.1,24575,0,Yes
+Miami University-Oxford,OH,Oxford,75.4,1317,16656,18161,41221,55076,80.8,23000,0,Yes
+Winona State University,MN,Winona,75.5,,5144,10576,17308,58532,59.0,21500,0,No
+University of Wisconsin-La Crosse,WI,La Crosse,75.5,1220,9277,10070,19517,60378,71.1,22500,0,Yes
+University of Idaho,ID,Moscow,75.5,1116,7747,9084,28320,54670,59.2,21982,0,Yes
+DePaul University,IL,Chicago,75.9,1262,14090,45999,45999,68751,68.9,23168,0,No
+Kean University,NJ,Union,75.9,1040,11433,14299,22446,57237,45.0,23250,0,No
+Pace University,NY,New York,75.9,1266,7665,53290,53290,70378,60.7,23250,0,No
+Tennessee Technological University,TN,Cookeville,76.1,1151,8698,11376,15576,48501,56.0,15650,0,No
+Indiana University-Indianapolis,IN,Indianapolis,76.4,1139,13830,10762,34891,55198,54.1,20000,0,No
+University of California-Riverside,CA,Riverside,76.4,,22593,15606,49806,67699,76.3,17500,43,Yes
+University of Oklahoma-Norman Campus,OK,Norman,76.6,1246,22734,9797,27377,63126,75.3,20654,0,No
+The University of Alabama,AL,Tuscaloosa,76.6,1285,33227,12180,34172,59221,73.5,22750,0,Yes
+University of North Dakota,ND,Grand Forks,76.9,,9981,10951,15570,63552,62.0,22057,0,No
+Oregon State University,OR,Corvallis,77.3,1290,30743,14400,38190,64010,70.4,21221,0,No
+University of Illinois Chicago,IL,Chicago,77.3,1250,22170,14338,29884,68740,61.0,16704,0,No
+Eastern Kentucky University,KY,Richmond,77.6,1149,12318,10320,21230,45795,49.9,22500,0,No
+Mississippi State University,MS,Mississippi State,77.6,1219,18397,10202,27637,51513,64.8,22142,0,No
+Rowan University,NJ,Glassboro,77.7,1212,15841,16574,26932,59988,67.8,20500,0,No
+Jacksonville State University,AL,Jacksonville,77.7,1059,7036,12894,23334,45235,52.9,22189,0,No

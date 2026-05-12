@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Andrew Cause — AI Builder Certificate</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&family=Playfair+Display:wght@700&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    min-height: 100vh;
+    background: #0a0a0a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Inter', sans-serif;
+    overflow: hidden;
+  }
+
+  /* ── Confetti canvas ── */
+  #confetti-canvas {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    pointer-events: none;
+    z-index: 100;
+  }
+
+  /* ── Page fade-in ── */
+  .page-wrapper {
+    opacity: 0;
+    animation: pageFade 0.8s ease forwards;
+    animation-delay: 0.2s;
+    padding: 40px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+  @keyframes pageFade {
+    to { opacity: 1; }
+  }
+
+  /* ── Certificate card ── */
+  .certificate {
+    position: relative;
+    width: 860px;
+    max-width: 100%;
+    background: #ffffff;
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 0 0 0 rgba(34,197,94,0);
+    transform: scale(0.88);
+    opacity: 0;
+    animation: cardReveal 1s cubic-bezier(0.22,1,0.36,1) forwards;
+    animation-delay: 0.5s;
+  }
+  @keyframes cardReveal {
+    to { transform: scale(1); opacity: 1; box-shadow: 0 40px 120px rgba(0,0,0,0.5); }
+  }
+
+  /* ── Green border frame ── */
+  .border-frame {
+    position: absolute;
+    inset: 0;
+    border: 14px solid transparent;
+    border-image: repeating-linear-gradient(
+      45deg,
+      #16a34a 0px,
+      #22c55e 6px,
+      #15803d 12px,
+      #16a34a 18px
+    ) 14;
+    pointer-events: none;
+    z-index: 10;
+    opacity: 0;
+    animation: frameFade 0.6s ease forwards;
+    animation-delay: 1.2s;
+  }
+  @keyframes frameFade {
+    to { opacity: 1; }
+  }
+
+  /* ── Inner padding ── */
+  .cert-inner {
+    padding: 48px 64px 52px;
+    text-align: center;
+    position: relative;
+  }
+
+  /* ── Gold seal ── */
+  .gold-seal {
+    position: absolute;
+    top: 32px;
+    right: 48px;
+    width: 90px;
+    height: 90px;
+    opacity: 0;
+    transform: rotate(-20deg) scale(0.5);
+    animation: sealSpin 0.7s cubic-bezier(0.34,1.56,0.64,1) forwards;
+    animation-delay: 2.6s;
+  }
+  @keyframes sealSpin {
+    to { opacity: 1; transform: rotate(0deg) scale(1); }
+  }
+  .seal-svg { width: 100%; height: 100%; }
+
+  /* ── Leland logo ── */
+  .leland-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    margin-bottom: 6px;
+    opacity: 0;
+    transform: translateY(-10px);
+    animation: slideDown 0.5s ease forwards;
+    animation-delay: 1s;
+  }
+  @keyframes slideDown {
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .leland-logo svg { width: 28px; height: 28px; }
+  .leland-wordmark {
+    font-size: 22px;
+    font-weight: 700;
+    color: #16a34a;
+    letter-spacing: 0.5px;
+  }
+
+  .cert-subtitle {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3.5px;
+    color: #6b7280;
+    text-transform: uppercase;
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+    animation-delay: 1.2s;
+  }
+
+  .certifies-that {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: #9ca3af;
+    text-transform: uppercase;
+    margin-bottom: 18px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+    animation-delay: 1.5s;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(8px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Name reveal ── */
+  .recipient-name {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 68px;
+    font-weight: 700;
+    color: #111827;
+    line-height: 1;
+    margin-bottom: 28px;
+    letter-spacing: -1px;
+    opacity: 0;
+    clip-path: inset(0 100% 0 0);
+    animation: nameSlide 0.9s cubic-bezier(0.22,1,0.36,1) forwards;
+    animation-delay: 1.8s;
+  }
+  @keyframes nameSlide {
+    to { opacity: 1; clip-path: inset(0 0% 0 0); }
+  }
+
+  /* ── Divider ── */
+  .divider {
+    width: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #d1d5db, transparent);
+    margin: 0 auto 28px;
+    animation: dividerGrow 0.6s ease forwards;
+    animation-delay: 2.4s;
+  }
+  @keyframes dividerGrow {
+    to { width: 80%; }
+  }
+
+  .completed-text {
+    font-size: 10px;
+    font-weight: 500;
+    letter-spacing: 3px;
+    color: #9ca3af;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+    animation-delay: 2.4s;
+  }
+
+  .program-title {
+    font-size: 32px;
+    font-weight: 700;
+    color: #111827;
+    margin-bottom: 28px;
+    letter-spacing: -0.3px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards;
+    animation-delay: 2.55s;
+  }
+
+  /* ── Skill badges ── */
+  .badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    margin-bottom: 44px;
+  }
+  .badge {
+    background: #f3f4f6;
+    border: 1px solid #e5e7eb;
+    border-radius: 4px;
+    padding: 6px 14px;
+    font-size: 9.5px;
+    font-weight: 600;
+    letter-spacing: 1.8px;
+    color: #374151;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  .badge:nth-child(1) { animation: fadeUp 0.4s ease forwards; animation-delay: 2.75s; }
+  .badge:nth-child(2) { animation: fadeUp 0.4s ease forwards; animation-delay: 2.88s; }
+  .badge:nth-child(3) { animation: fadeUp 0.4s ease forwards; animation-delay: 3.01s; }
+  .badge:nth-child(4) { animation: fadeUp 0.4s ease forwards; animation-delay: 3.14s; }
+  .badge:nth-child(5) { animation: fadeUp 0.4s ease forwards; animation-delay: 3.27s; }
+  .badge::before {
+    content: '✓ ';
+    color: #16a34a;
+    font-weight: 700;
+  }
+
+  /* ── Footer: signatures + date ── */
+  .cert-footer {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-between;
+    padding-top: 16px;
+    border-top: 1px solid #f3f4f6;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards;
+    animation-delay: 3.4s;
+  }
+
+  .signatory {
+    text-align: center;
+    flex: 1;
+  }
+  .sig-line {
+    width: 140px;
+    height: 1px;
+    background: #d1d5db;
+    margin: 0 auto 6px;
+  }
+  .sig-script {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    color: #374151;
+    margin-bottom: 4px;
+    font-style: italic;
+  }
+  .sig-name {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #374151;
+    text-transform: uppercase;
+    margin-bottom: 2px;
+  }
+  .sig-title {
+    font-size: 9px;
+    letter-spacing: 1px;
+    color: #9ca3af;
+    text-transform: uppercase;
+  }
+
+  .issued-block {
+    text-align: center;
+    flex: 0.8;
+  }
+  .issued-label {
+    font-size: 9px;
+    letter-spacing: 2.5px;
+    color: #9ca3af;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .issued-date {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    color: #374151;
+    text-transform: uppercase;
+  }
+
+  /* ── Glow pulse on name after reveal ── */
+  .recipient-name.glowing {
+    animation: nameGlow 1.2s ease-in-out;
+  }
+  @keyframes nameGlow {
+    0%   { text-shadow: none; }
+    40%  { text-shadow: 0 0 30px rgba(34,197,94,0.6), 0 0 60px rgba(34,197,94,0.3); }
+    100% { text-shadow: none; }
+  }
+</style>
+</head>
+<body>
+
+<canvas id="confetti-canvas"></canvas>
+
+<div class="page-wrapper">
+  <div class="certificate">
+
+    <!-- Green pixel border -->
+    <div class="border-frame"></div>
+
+    <div class="cert-inner">
+
+      <!-- Gold seal -->
+      <div class="gold-seal">
+        <svg class="seal-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <radialGradient id="sealGrad" cx="50%" cy="35%" r="60%">
+              <stop offset="0%" stop-color="#fde68a"/>
+              <stop offset="50%" stop-color="#f59e0b"/>
+              <stop offset="100%" stop-color="#b45309"/>
+            </radialGradient>
+          </defs>
+          <!-- Star points -->
+          <g fill="url(#sealGrad)">
+            <polygon points="50,2 56,38 92,38 63,60 74,96 50,76 26,96 37,60 8,38 44,38" opacity="0.35"/>
+          </g>
+          <!-- Main circle -->
+          <circle cx="50" cy="50" r="38" fill="url(#sealGrad)" stroke="#d97706" stroke-width="1.5"/>
+          <circle cx="50" cy="50" r="33" fill="none" stroke="#fde68a" stroke-width="1" stroke-dasharray="3,3"/>
+          <!-- Star burst lines -->
+          <g stroke="#d97706" stroke-width="1.2" opacity="0.7">
+            <line x1="50" y1="12" x2="50" y2="20"/>
+            <line x1="50" y1="80" x2="50" y2="88"/>
+            <line x1="12" y1="50" x2="20" y2="50"/>
+            <line x1="80" y1="50" x2="88" y2="50"/>
+            <line x1="23" y1="23" x2="29" y2="29"/>
+            <line x1="71" y1="71" x2="77" y2="77"/>
+            <line x1="77" y1="23" x2="71" y2="29"/>
+            <line x1="29" y1="71" x2="23" y2="77"/>
+          </g>
+          <!-- Text -->
+          <text x="50" y="42" text-anchor="middle" font-family="Inter, sans-serif" font-size="6.5" font-weight="700" letter-spacing="1.5" fill="#7c2d12" text-transform="uppercase">SEAL OF</text>
+          <!-- Star icon -->
+          <text x="50" y="55" text-anchor="middle" font-size="14">★</text>
+          <text x="50" y="55" text-anchor="middle" font-size="14" fill="#7c2d12">★</text>
+          <text x="50" y="66" text-anchor="middle" font-family="Inter, sans-serif" font-size="5.5" font-weight="700" letter-spacing="1" fill="#7c2d12">EXCELLENCE</text>
+        </svg>
+      </div>
+
+      <!-- Leland Logo -->
+      <div class="leland-logo">
+        <svg viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M16 3C16 3 8 10 8 18C8 22.4 11.6 26 16 26C20.4 26 24 22.4 24 18C24 10 16 3 16 3Z" fill="#16a34a"/>
+          <path d="M16 10C16 10 12 14 12 18C12 20.2 13.8 22 16 22C18.2 22 20 20.2 20 18C20 14 16 10 16 10Z" fill="#ffffff" opacity="0.5"/>
+        </svg>
+        <span class="leland-wordmark">Leland</span>
+      </div>
+
+      <div class="cert-subtitle">Certificate of Completion</div>
+
+      <div class="certifies-that">This Certifies That</div>
+
+      <div class="recipient-name" id="recipientName">Andrew Cause</div>
+
+      <div class="divider"></div>
+
+      <div class="completed-text">Has Successfully Completed</div>
+
+      <div class="program-title">AI Builder Program, Level 1</div>
+
+      <div class="badges">
+        <span class="badge">Vibe Coding</span>
+        <span class="badge">AI-Powered Communication</span>
+        <span class="badge">Research &amp; Presentations</span>
+        <span class="badge">Data Analysis &amp; Visualization</span>
+        <span class="badge">Workflow Automation</span>
+      </div>
+
+      <div class="cert-footer">
+        <div class="signatory">
+          <div class="sig-script">Kristen Hansen</div>
+          <div class="sig-line"></div>
+          <div class="sig-name">Kristen Hansen</div>
+          <div class="sig-title">Head of AI Education</div>
+        </div>
+
+        <div class="issued-block">
+          <div class="issued-label">Issued</div>
+          <div class="issued-date">May 8, 2026</div>
+        </div>
+
+        <div class="signatory">
+          <div class="sig-script">John Koelliker</div>
+          <div class="sig-line"></div>
+          <div class="sig-name">John Koelliker</div>
+          <div class="sig-title">Leland CEO</div>
+        </div>
+      </div>
+
+    </div><!-- /.cert-inner -->
+  </div><!-- /.certificate -->
+</div>
+
+<script>
+  // ── Confetti ──────────────────────────────────────────────
+  const canvas = document.getElementById('confetti-canvas');
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const COLORS = ['#16a34a','#22c55e','#86efac','#fbbf24','#f59e0b','#ffffff','#6ee7b7'];
+  let particles = [];
+  let animFrame = null;
+  let running = false;
+
+  function Particle() {
+    this.x = Math.random() * canvas.width;
+    this.y = -10;
+    this.w = Math.random() * 10 + 5;
+    this.h = Math.random() * 5 + 3;
+    this.color = COLORS[Math.floor(Math.random() * COLORS.length)];
+    this.rot = Math.random() * Math.PI * 2;
+    this.rotSpeed = (Math.random() - 0.5) * 0.15;
+    this.vx = (Math.random() - 0.5) * 3;
+    this.vy = Math.random() * 4 + 2;
+    this.alpha = 1;
+    this.life = 1;
+    this.decay = Math.random() * 0.008 + 0.004;
+  }
+
+  function spawnBurst(n) {
+    for (let i = 0; i < n; i++) particles.push(new Particle());
+  }
+
+  function drawLoop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.05;
+      p.rot += p.rotSpeed;
+      p.life -= p.decay;
+      p.alpha = Math.max(0, p.life);
+      ctx.save();
+      ctx.globalAlpha = p.alpha;
+      ctx.translate(p.x, p.y);
+      ctx.rotate(p.rot);
+      ctx.fillStyle = p.color;
+      ctx.fillRect(-p.w/2, -p.h/2, p.w, p.h);
+      ctx.restore();
+    });
+    particles = particles.filter(p => p.life > 0);
+    if (running || particles.length > 0) animFrame = requestAnimationFrame(drawLoop);
+  }
+
+  // Trigger celebration when name finishes revealing
+  setTimeout(() => {
+    // Glow the name
+    document.getElementById('recipientName').classList.add('glowing');
+
+    // Start confetti
+    running = true;
+    drawLoop();
+    spawnBurst(180);
+
+    // Two extra bursts
+    setTimeout(() => spawnBurst(120), 300);
+    setTimeout(() => spawnBurst(80),  600);
+
+    // Stop spawning, let remaining fall
+    setTimeout(() => { running = false; }, 1200);
+
+  }, 2700); // fires just after name reveal completes
+
+  window.addEventListener('resize', () => {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  });
+</script>
+
+</body>
+</html>
